@@ -9,28 +9,28 @@ const supermarkets = [
     logo: "/Grandmart.svg",
     title: "Grandmart supermarketlər şəbəkəsi",
     description: "Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən Grandmart supermarketlər şəbəkəsi hazırda 30-dan çox filialla müştərilərin ixtiyarındadır.",
-    link: "#"
+    link: "https://www.grandmartsupermarket.com/"
   },
   {
     id: 2,
     logo: "/Megastore.svg",
     title: "Megastore supermarketlər şəbəkəsi",
     description: "Azərbaycan Respublikasında hazırda 21 mağaza ilə fəaliyyət göstərən Megastore marketlər şəbəkəsi 2010-cu ildə təsis edilmişdir.",
-    link: "#"
+    link: "https://www.megastore.market/"
   },
   {
     id: 3,
-    logo: "/Novashome.svg",
+    logo: "/Bolmart.svg",
     title: "Bolmart supermarketlər şəbəkəsi",
     description: "Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən Bolmart supermarketlər şəbəkəsi hazırda 50-yə yaxın filialla müştərilərin ixtiyarındadır.",
-    link: "#",
+    link: "https://www.bolmart.az/",
   },
   {
     id: 4,
-    logo: "/market.svg",
+    logo: "/Novashome.svg",
     title: "Novas Home",
     description: "Novas Home 2019-cu il tarixindən fəaliyyətə başlamışdır. Brendin filialları bizim market mağazalarında yerləşir. Qısa zaman ərzində Novas Home konsepsiyası yeni filiallarda genişlənmişdir.",
-    link: "#"
+    link: "https://www.novas-home.com/"
   }
 ];
 
@@ -73,6 +73,7 @@ export default function Features() {
                 </div>
                 <Link
                   href={market.link}
+                  target="_blank"
                   className="inline-flex items-center text-zinc-900 font-medium hover:text-teal-600 transition-colors"
                 >
                   Sayta keç

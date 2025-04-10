@@ -79,9 +79,19 @@ export function Footer() {
                 <Mail className="w-5 h-5" />
                 info.tender.az
               </Link>
+
               <div className="flex items-center gap-2 text-zinc-600">
                 <MapPin className="w-5 h-5 flex-shrink-0" />
-                Bəşir Bünyadov küç. 134
+
+                <a 
+                // Google Maps link (URL encode the address)
+                href="https://www.google.com/maps/search/?api=1&query=B%C9%99%C5%9Fir+B%C3%BCnyadov+k%C3%BC%C3%A7.+134"
+                target="_blank" // Open in new tab
+                rel="noopener noreferrer" // Security best practice for target="_blank"
+                className="flex items-center gap-3 group"
+              >
+                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">Bəşir Bünyadov küç. 134</span>
+              </a>
               </div>
             </div>
           </div>
