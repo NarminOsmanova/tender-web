@@ -1,5 +1,5 @@
 import React from 'react'
-import TenderContainer from '@/container/TenderContainer'
+import TenderContainer from '@/container/tender'
 const TenderPage = () => {
   return (
     <main>

@@ -1,4 +1,4 @@
-import HomeContainer from '@/container/HomeContainer';
+import HomeContainer from '@/container/home';
 import React from 'react';
 export default function Home() {
   return (

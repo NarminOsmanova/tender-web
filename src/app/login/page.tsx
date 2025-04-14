@@ -1,10 +1,10 @@
-import { Login } from '@/components/Login'
+import LoginContainer from '@/container/login'
 import React from 'react'
 
 const LoginPage = () => {
   return (
     <main>
-      <Login/>
+      <LoginContainer/>
     </main>
   )
 }

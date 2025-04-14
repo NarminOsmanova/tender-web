@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import ClientBody from "@/app/ClientBody";
-import { Footer } from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import { Footer } from "@/shared/components/Footer";
+import { Header } from "@/shared/components/Header";
 
 
 
@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
     return (
         <>
-            <Navbar />
+            <Header />
             <ClientBody>{children}</ClientBody>
             <Footer />
         </>
