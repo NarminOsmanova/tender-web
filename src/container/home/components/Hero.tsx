@@ -2,8 +2,10 @@
 
 import { Button } from "@/shared/components/ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router=useRouter()
   return (
     <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden">
       {/* Desktop background */}
@@ -63,7 +65,7 @@ export default function Hero() {
           </p>
           
           <div className="mt-10">
-            <Button className="bg-white hover:bg-zinc-50 text-zinc-900 px-8 py-6 text-lg rounded-full shadow-sm hover:shadow-md transition-all duration-200">
+            <Button className="bg-white hover:bg-zinc-50 text-zinc-900 px-8 py-6 text-lg rounded-full shadow-sm hover:shadow-md transition-all duration-200" onClick={()=>{router.push("/login")}}>
               İndi təklif ver
             </Button>
           </div>

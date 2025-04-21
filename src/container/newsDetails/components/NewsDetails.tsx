@@ -3,7 +3,7 @@ import type React from "react"
 import { mockNews } from "@/data/news"
 import Image from "next/image"
 import Link from "next/link"
-import { Facebook, Linkedin, Twitter, Send, Instagram } from "lucide-react"
+import { Facebook, Linkedin, Twitter, Send, Instagram, ChevronRight } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 interface NewsDetailsProps {
@@ -39,9 +39,9 @@ const NewsDetails: React.FC<NewsDetailsProps> = ({ slug }) => {
               <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" className="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
                 <Facebook className="w-5 h-5 text-gray-700" />
               </Link>
-              <Link 
-                href={`https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`} 
-                target="_blank" 
+              <Link
+                href={`https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
                 className="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors"
               >
                 <Instagram className="w-5 h-5 text-gray-700" />
@@ -77,7 +77,9 @@ const NewsDetails: React.FC<NewsDetailsProps> = ({ slug }) => {
                     </div>
                     <p className="text-gray-700 text-sm mb-2">{relatedNews.date}</p>
                     <h3 className="text-lg font-semibold">{relatedNews.title}</h3>
+                    <span className='p-4 flex items-center  gap-2'>Ətraflı <ChevronRight className="w-4 h-4" /></span>
                   </div>
+
                 </div>
               ))}
           </div>

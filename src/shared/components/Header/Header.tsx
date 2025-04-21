@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/components/ui/dropdown-menu";
 import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,25 +30,28 @@ export default function Header() {
       <div className="container px-4 mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="/" className="text-xl font-bold text-zinc-900">
+          <Link href="/" className="text-xl font-bold text-zinc-900">
             Tender
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md_lg:flex items-center space-x-8">
-          <a href="/about" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="/about" className="text-zinc-700 hover:text-zinc-900">
             Haqqımızda
-          </a>
-          <a href="/contact" className="text-zinc-700 hover:text-zinc-900">
+          </Link>
+          <Link href="/contact" className="text-zinc-700 hover:text-zinc-900">
             Bizimlə əlaqə
-          </a>
-          <a href="/faq" className="text-zinc-700 hover:text-zinc-900">
+          </Link>
+          <Link href="/faq" className="text-zinc-700 hover:text-zinc-900">
             Tez-tez verilən suallar
-          </a>
-          <a href="/testimonials" className="text-zinc-700 hover:text-zinc-900">
+          </Link>
+          <Link href="/testimonials" className="text-zinc-700 hover:text-zinc-900">
             Müştəri rəyləri
-          </a>
+          </Link>
+          <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
+            Xəbərlər
+          </Link>
         </nav>
 
         {/* CTA / User Info Buttons */}
@@ -103,18 +107,21 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md_lg:hidden h-screen p-4 pt-2 bg-white border-t border-zinc-100">
           <nav className="flex flex-col space-y-4">
-            <a href="/about" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="/about" className="text-zinc-700 hover:text-zinc-900 py-2">
               Haqqımızda
-            </a>
-            <a href="/contact" className="text-zinc-700 hover:text-zinc-900 py-2">
+            </Link>
+            <Link href="/contact" className="text-zinc-700 hover:text-zinc-900 py-2">
               Bizimlə əlaqə
-            </a>
-            <a href="/faq" className="text-zinc-700 hover:text-zinc-900 py-2">
+            </Link>
+            <Link href="/faq" className="text-zinc-700 hover:text-zinc-900 py-2">
               Tez-tez verilən suallar
-            </a>
-            <a href="/testimonials" className="text-zinc-700 hover:text-zinc-900 py-2">
+            </Link>
+            <Link href="/testimonials" className="text-zinc-700 hover:text-zinc-900 py-2">
               Müştəri rəyləri
-            </a>
+            </Link>
+            <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
+              Xəbərlər
+            </Link>
             <div className="pt-4 flex flex-col space-y-3">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

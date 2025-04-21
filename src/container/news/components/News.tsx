@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/shared/components/ui/pagination'
 import { useRouter } from 'next/navigation'
+import { ChevronRight } from 'lucide-react'
 
 const News = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -39,6 +40,7 @@ const router=useRouter()
               <p className="text-gray-500 text-sm">{news.date}</p>
               <h2 className="text-lg font-semibold mt-2">{news.title}</h2>
             </div>
+            <span className='p-4 flex items-center  gap-2'>Ətraflı <ChevronRight className="w-4 h-4" /></span>
           </div>
         ))}
       </div>

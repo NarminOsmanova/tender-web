@@ -2,13 +2,15 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Input } from '@/shared/components/ui/input';
 
 // Zod validation schema
 const schema = z.object({
-    offer: z.string().min(1, "Qiymat təklifi tələb olunur"),
-    quantity: z.number().min(1, "Miqdar tələb olunur").int("Miqdar tam ədəd olmalıdır"),
+    offer: z.string().min(1, "Qiymət təklifi tələb olunur"),
+    quantity: z.coerce.number()
+        .min(1, "Miqdar tələb olunur")
+        .int("Miqdar tam ədəd olmalıdır"),
     note: z.string().optional(),
-    isVATIncluded: z.boolean(),
 });
 
 const ProductForm = () => {
@@ -25,8 +27,8 @@ const ProductForm = () => {
             <div className='max-w-[488px] mx-auto flex flex-col gap-6'>
                 <h2 className="text-xl font-semibold mb-4 text-center">Qiymət təklifi ver</h2>
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Qiymat təklifi *</label>
-                    <input
+                    <label className="block text-sm font-medium text-gray-700">Qiymət təklifi *</label>
+                    <Input
                         type="number"
                         {...register('offer')}
                         className={`mt-1 block w-full border ${errors.offer ? 'border-red-500' : 'border-gray-300'} rounded-md p-2`}
@@ -36,9 +38,9 @@ const ProductForm = () => {
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Miqdar *</label>
-                    <input
+                    <Input
                         type="number"
-                        {...register('quantity', { valueAsNumber: true })}
+                        {...register('quantity')}
                         className={`mt-1 block w-full border ${errors.quantity ? 'border-red-500' : 'border-gray-300'} rounded-md p-2`}
                         placeholder="Miqdarı daxil edin"
                     />

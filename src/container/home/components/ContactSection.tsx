@@ -58,22 +58,22 @@ export default function ContactSection() {
             
             <div className="space-y-6">
               {/* Phone Link */}
-              <a 
+              <Link
                 href="tel:+994002222222" // tel: prefix for calls
                 className="flex items-center gap-3 group"
               >
                 <PhoneIcon className="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition-colors" />
                 <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">+994 00 222 22 22</span>
-              </a>
+              </Link>
               
               {/* Email Link */}
-              <a 
+              <Link
                 href="mailto:info.tender.az" // mailto: prefix for emails
                 className="flex items-center gap-3 group"
               >
                 <EnvelopeClosedIcon className="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition-colors" />
                 <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">info.tender.az</span>
-              </a>
+              </Link>
               
               {/* Address Link */}
               <a 

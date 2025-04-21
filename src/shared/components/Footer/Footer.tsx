@@ -8,6 +8,7 @@ const navigation = [
   { name: "Bizimlə əlaqə", href: "/contact" },
   { name: "Tez-tez verilən suallar", href: "/faq" },
   { name: "Müştəri rəyləri", href: "/testimonials" },
+  { name: "Xəbərlər", href: "/news" }
 ]
 
 const socials = [
@@ -56,7 +57,7 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-           
+
           </div>
 
           {/* Bottom section - Copyright */}
@@ -65,15 +66,15 @@ export default function Footer() {
               © Copyright 2025. All rights reserved.
             </p>
             <div className="mt-0 flex flex-col md:flex-row items-start md:items-center justify-center gap-4">
-              <Link 
-                href="tel:+994002222222" 
+              <Link
+                href="tel:+994002222222"
                 className="flex  items-center gap-2 text-zinc-600 hover:text-zinc-900 transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 +994 00 222 22 22
               </Link>
-              <Link 
-                href="mailto:info.tender.az" 
+              <Link
+                href="mailto:info.tender.az"
                 className="flex items-center gap-2 text-zinc-600 hover:text-zinc-900 transition-colors"
               >
                 <Mail className="w-5 h-5" />
@@ -83,15 +84,15 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-zinc-600">
                 <MapPin className="w-5 h-5 flex-shrink-0" />
 
-                <a 
-                // Google Maps link (URL encode the address)
-                href="https://www.google.com/maps/search/?api=1&query=B%C9%99%C5%9Fir+B%C3%BCnyadov+k%C3%BC%C3%A7.+134"
-                target="_blank" // Open in new tab
-                rel="noopener noreferrer" // Security best practice for target="_blank"
-                className="flex items-center gap-3 group"
-              >
-                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">Bəşir Bünyadov küç. 134</span>
-              </a>
+                <a
+                  // Google Maps link (URL encode the address)
+                  href="https://www.google.com/maps/search/?api=1&query=B%C9%99%C5%9Fir+B%C3%BCnyadov+k%C3%BC%C3%A7.+134"
+                  target="_blank" // Open in new tab
+                  rel="noopener noreferrer" // Security best practice for target="_blank"
+                  className="flex items-center gap-3 group"
+                >
+                  <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">Bəşir Bünyadov küç. 134</span>
+                </a>
               </div>
             </div>
           </div>
