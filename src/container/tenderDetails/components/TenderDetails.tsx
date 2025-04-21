@@ -27,15 +27,15 @@ import { getAllMockProducts } from "@/data/product";
 
 
 const getProductsForSlug = (id: number): ProductData[] => {
-    const allProducts = getAllMockProducts();
-    return allProducts.filter(product => product.tenderId === id);
-  };
+  const allProducts = getAllMockProducts();
+  return allProducts.filter(product => product.tenderId === id);
+};
 
 // --- Product Card Component ---
 function ProductCard({ product, tender }: { product: ProductData; tender: TenderData }) {
   const router = useRouter();
   return (
-    <div className="bg-[#FAFBFF] cursor-pointer hover:bg-[#F1F2F5] border border-gray-100 rounded-lg p-4 flex flex-col relative group shadow-sm hover:shadow-md transition-shadow duration-200" onClick={() => { router.push(`/tender/${tender.slug}/${product.slug}`); }}>
+    <div className=" bg-[#FAFBFF] cursor-pointer hover:bg-[#F1F2F5] border border-gray-100 rounded-lg p-4 flex flex-col relative group shadow-sm hover:shadow-md transition-shadow duration-200" onClick={() => { router.push(`/tender/${tender.slug}/${product.slug}`); }}>
       <div className="h-[360px] bg-white rounded-md flex justify-center items-center p-6 mb-4 aspect-video relative overflow-hidden">
         <Image
           src={product.images[0]}
@@ -50,7 +50,7 @@ function ProductCard({ product, tender }: { product: ProductData; tender: Tender
         />
       </div>
       <h3 className="font-semibold text-zinc-900 mb-3 text-base">{product.name}</h3>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 ">
         {product.specs.map((spec, index) => (
           <Badge
             key={index}
@@ -62,6 +62,9 @@ function ProductCard({ product, tender }: { product: ProductData; tender: Tender
           </Badge>
         ))}
       </div>
+      <Link href={`/tender/${tender.slug}/${product.slug}`} className="pt-4 text-sm hover:underline flex items-center gap-1 mb-4">
+        Ətraflı <ChevronRight className="w-4 h-4" />
+      </Link>
     </div>
   );
 }
@@ -91,12 +94,12 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
       window.scrollTo(0, 0); // Scroll to top on page change
     }
   };
-  const router=useRouter()
+  const router = useRouter()
   return (
-   
+
     <div className="container mx-auto  px-4">
       <section className="py-16">
-        <TenderCard tender={tender}/>
+        <TenderCard tender={tender} />
       </section>
       {/* Breadcrumbs */}
       <nav
@@ -132,9 +135,9 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
         ) : (
           <p className="text-center text-zinc-500 py-10 col-span-full">Bu tender üçün məhsul tapılmadı.</p>
         )}
-         <Button className="fixed bottom-60 right-20 bg-teal-600 hover:bg-teal-700 z-10 h-auto px-3 py-1.5 text-sm shadow" onClick={()=>{router.push("/cart")}}>
-            <ShoppingBag className="w-4 h-4 mr-1.5" /> Səbətim (2)
-          </Button>
+        <Button className="fixed bottom-60 right-20 bg-teal-600 hover:bg-teal-700 z-10 h-auto px-3 py-1.5 text-sm shadow" onClick={() => { router.push("/cart") }}>
+          <ShoppingBag className="w-4 h-4 mr-1.5" /> Səbətim (2)
+        </Button>
       </section>
 
       {/* --- Pagination (Conditional & Styled) --- */}
