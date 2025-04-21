@@ -39,7 +39,11 @@ const NewsDetails: React.FC<NewsDetailsProps> = ({ slug }) => {
               <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" className="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
                 <Facebook className="w-5 h-5 text-gray-700" />
               </Link>
-              <Link href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(newsItem.title)}`} target="_blank" className="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+              <Link 
+                href={`https://www.instagram.com/?url=${encodeURIComponent(shareUrl)}`} 
+                target="_blank" 
+                className="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors"
+              >
                 <Instagram className="w-5 h-5 text-gray-700" />
               </Link>
               <Link href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`} target="_blank" className="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
@@ -60,7 +64,7 @@ const NewsDetails: React.FC<NewsDetailsProps> = ({ slug }) => {
               .filter((news) => news.slug !== slug)
               .slice(0, 3)
               .map((relatedNews) => (
-                <div key={relatedNews.id} className="bg-gradient-to-r from-[#EAFFFC] to-[#FFFFFF] rounded-lg overflow-hidden shadow-md" onClick={() => { router.push(`/news/${relatedNews.slug}`) }}>
+                <div key={relatedNews.id} className="cursor-pointer bg-gradient-to-r from-[#EAFFFC] to-[#FFFFFF] rounded-lg overflow-hidden shadow-md" onClick={() => { router.push(`/news/${relatedNews.slug}`) }}>
                   <div className="p-6 flex flex-col items-center text-center">
                     <div className="mb-4 flex justify-center">
                       <Image

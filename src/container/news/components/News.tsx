@@ -30,10 +30,10 @@ const router=useRouter()
   };
   return (
     <div className="py-16 px-4 container" >
-      <h1 className="text-3xl font-bold mb-6">Xəbərlər</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <h1 className="text-2xl md:text-4xl font-bold mb-6">Xəbərlər</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {currentItems.map((news) => (
-          <div key={news.id} className="bg-gradient-to-r from-[#EAFFFC] to-[#FFFFFF] shadow-lg rounded-lg overflow-hidden" onClick={()=>{router.push(`/news/${news.slug}`)}}>
+          <div key={news.id} className="bg-gradient-to-r from-[#EAFFFC] to-[#FFFFFF] shadow-lg rounded-lg overflow-hidden cursor-pointer" onClick={()=>{router.push(`/news/${news.slug}`)}}>
             <Image width={300} height={300} src={news.image} alt={news.title} className="w-full h-64 object-contain" />
             <div className="p-4">
               <p className="text-gray-500 text-sm">{news.date}</p>

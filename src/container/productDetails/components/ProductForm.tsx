@@ -27,7 +27,7 @@ const ProductForm = () => {
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Qiymat təklifi *</label>
                     <input
-                        type="text"
+                        type="number"
                         {...register('offer')}
                         className={`mt-1 block w-full border ${errors.offer ? 'border-red-500' : 'border-gray-300'} rounded-md p-2`}
                         placeholder="Təklif olunan qiyməti daxil edin"
@@ -51,15 +51,6 @@ const ProductForm = () => {
                         className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                         placeholder="Əlavə qeydinizi daxil edin"
                     />
-                </div>
-                <div className="flex items-center mb-4">
-                    <input
-                        type="checkbox"
-                        id='check'
-                        {...register('isVATIncluded')}
-                        className="mr-2"
-                    />
-                    <label htmlFor='check' className="text-sm font-medium text-gray-700">ƏDV ilə əlaqəli başla</label>
                 </div>
                 <button
                     type="submit"

@@ -34,9 +34,8 @@ const getProductsForSlug = (id: number): ProductData[] => {
 // --- Product Card Component ---
 function ProductCard({ product, tender }: { product: ProductData; tender: TenderData }) {
   const router = useRouter();
-  console.log(product.slug,"slug")
   return (
-    <div className="bg-[#FAFBFF] hover:bg-[#F1F2F5] border border-gray-100 rounded-lg p-4 flex flex-col relative group shadow-sm hover:shadow-md transition-shadow duration-200" onClick={() => { router.push(`/tender/${tender.slug}/${product.slug}`); }}>
+    <div className="bg-[#FAFBFF] cursor-pointer hover:bg-[#F1F2F5] border border-gray-100 rounded-lg p-4 flex flex-col relative group shadow-sm hover:shadow-md transition-shadow duration-200" onClick={() => { router.push(`/tender/${tender.slug}/${product.slug}`); }}>
       <div className="h-[360px] bg-white rounded-md flex justify-center items-center p-6 mb-4 aspect-video relative overflow-hidden">
         <Image
           src={product.images[0]}
@@ -92,7 +91,7 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
       window.scrollTo(0, 0); // Scroll to top on page change
     }
   };
-
+  const router=useRouter()
   return (
    
     <div className="container mx-auto  px-4">
@@ -133,8 +132,8 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
         ) : (
           <p className="text-center text-zinc-500 py-10 col-span-full">Bu tender üçün məhsul tapılmadı.</p>
         )}
-         <Button className="fixed bottom-60 right-20 bg-teal-600 hover:bg-teal-700 z-10 h-auto px-3 py-1.5 text-sm shadow">
-            <ShoppingBag className="w-4 h-4 mr-1.5" /> Səbətim (0)
+         <Button className="fixed bottom-60 right-20 bg-teal-600 hover:bg-teal-700 z-10 h-auto px-3 py-1.5 text-sm shadow" onClick={()=>{router.push("/cart")}}>
+            <ShoppingBag className="w-4 h-4 mr-1.5" /> Səbətim (2)
           </Button>
       </section>
 
