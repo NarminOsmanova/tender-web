@@ -32,7 +32,7 @@ export function Partners() {
     <section className="py-10 md:py-20 bg-[#FAFBFF] w-full">
       <div className="container relative">
         <div className="text-center mb-16">
-          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium mb-4">
             Partnyorlar
           </span>
           <h2 className="text-2xl md:text-4xl font-medium text-zinc-900">

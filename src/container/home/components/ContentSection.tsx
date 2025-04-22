@@ -44,18 +44,17 @@ export default function ContentSection() {
   return (
     <section className="py-10 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        {/* <div className="text-center mb-10">
+          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium mb-6">
             Haqqımızda
           </span>
           <h2 className="text-2xl md:text-4xl font-bold text-zinc-900 mb-6">
-            Title text here
+           Geniş Mağaza Şəbəkəmizlə Xidmətinizdəyik
           </h2>
-          <p className="text-zinc-600 max-w-3xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur. Urna condimentum at id eu. Et est dignissim tristique integer nullam fringilla.
-            Sed in scelerisque ornare nullam nibh sit. Porttitor facilisis imperdiet amet elementum laoreet lectus risus.
+          <p className="text-zinc-600 max-w-3xl mx-auto text-lg">
+          Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən lider brend olaraq, müştərilərimizə keyfiyyətli və sərfəli alış-veriş təcrübəsi təqdim edirik.
           </p>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* First row */}

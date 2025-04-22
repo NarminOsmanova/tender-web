@@ -28,11 +28,11 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <section className="py-10 md:py-20 bg-white max-w-[880px] w-full mx-auto">
+    <section className="py-10 md:py-20 bg-white max-w-[880px] w-full mx-auto" id="faq">
       <div className="container mx-auto px-4">
         <div className="mx-auto w-full">
           <div className="text-center mb-10">
-            <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium mb-4">
               Tez-tez verilən suallar
             </span>
             <h2 className="text-2xl md:text-4xl font-bold text-zinc-900">

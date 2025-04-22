@@ -12,13 +12,13 @@ const HomeContainer = () => {
     return (
         <section className='w-full'>
             <Hero />
-            <ContentSection />
             <Features />
+            <ContentSection />
+            <CTASection />
             <ContactSection />
             <FAQ />
             <Testimonials />
             <Partners />
-            <CTASection />
         </section>
     )
 }

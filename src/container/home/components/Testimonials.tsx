@@ -71,10 +71,10 @@ export function Testimonials() {
   const groupedData = groupTestimonials(testimonials, 3)
 
   return (
-    <section className="py-24">
+    <section className="py-24" id="testimonials">
       <div className="container">
         <div className="text-center mb-16">
-          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium mb-4">
             Müştəri rəyləri
           </span>
           <h2 className="text-2xl md:text-4xl font-medium text-zinc-900">

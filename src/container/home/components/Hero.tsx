@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Hero() {
   const router=useRouter()
   return (
-    <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden">
+    <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden" id="about" >
       {/* Desktop background */}
       <div className="absolute inset-0 hidden md:block">
         <Image
@@ -49,19 +49,18 @@ export default function Hero() {
       </div>
       
       <div className="absolute top-56 left-1/2 -translate-x-1/2 z-10 container mx-auto px-4 text-center">
-        <div className="space-y-8">
-          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-sm font-medium">
+        <div className="space-y-8" >
+          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium">
             Biz kimik?
           </span>
           
           <h1 className="text-2xl md:text-5xl lg:text-[56px] font-bold text-zinc-900 tracking-tight">
-            Tenderlik və mükəmməllik:
-            <br />
-            <span className="text-zinc-800">İstədiyiniz hər şey bir yerdə</span>
+          Geniş Mağaza Şəbəkəmizlə Xidmətinizdəyik
           </h1>
           
-          <p className="text-zinc-600 text-lg max-w-3xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur. Urna condimentum at id eu. Et est dignissim tristique integer nullam fringilla. Sed in scelerisque ornare nullam nibh sit. Porttitor facilisis imperdiet amet elementum laoreet lectus risus.
+          <p className="text-zinc-600 max-w-3xl mx-auto text-lg">
+          Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən lider brend olaraq, müştərilərimizə keyfiyyətli və sərfəli alış-veriş təcrübəsi təqdim edirik.
+           
           </p>
           
           <div className="mt-10">

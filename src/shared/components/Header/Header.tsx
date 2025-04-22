@@ -37,16 +37,16 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md_lg:flex items-center space-x-8">
-          <Link href="/about" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="#about" className="text-zinc-700 hover:text-zinc-900">
             Haqqımızda
           </Link>
-          <Link href="/contact" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="#contact" className="text-zinc-700 hover:text-zinc-900">
             Bizimlə əlaqə
           </Link>
-          <Link href="/faq" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="#faq" className="text-zinc-700 hover:text-zinc-900">
             Tez-tez verilən suallar
           </Link>
-          <Link href="/testimonials" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="#testimonials" className="text-zinc-700 hover:text-zinc-900">
             Müştəri rəyləri
           </Link>
           <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
@@ -107,10 +107,10 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md_lg:hidden h-screen p-4 pt-2 bg-white border-t border-zinc-100">
           <nav className="flex flex-col space-y-4">
-            <Link href="/about" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="#about" className="text-zinc-700 hover:text-zinc-900 py-2">
               Haqqımızda
             </Link>
-            <Link href="/contact" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="#contact" className="text-zinc-700 hover:text-zinc-900 py-2">
               Bizimlə əlaqə
             </Link>
             <Link href="/faq" className="text-zinc-700 hover:text-zinc-900 py-2">

@@ -11,12 +11,6 @@ const navigation = [
   { name: "Xəbərlər", href: "/news" }
 ]
 
-const socials = [
-  { name: "Instagram", icon: Instagram, href: "#" },
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-]
-
 export default function Footer() {
   return (
     <footer className="bg-white w-full">
@@ -43,19 +37,6 @@ export default function Footer() {
                 </nav>
               </div>
 
-              {/* Social Media */}
-              <div className="flex gap-4 items-center justify-center">
-                {socials.map((social) => (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    className="w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-900 text-white hover:bg-zinc-700 transition-colors"
-                  >
-                    <social.icon className="w-5 h-5" />
-                    <span className="sr-only">{social.name}</span>
-                  </Link>
-                ))}
-              </div>
             </div>
 
           </div>
