@@ -2,7 +2,6 @@
 
 import { Button } from "@/shared/components/ui/button";
 import { Menu, ChevronDown, ShoppingBag, User } from "lucide-react";
-import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,12 +10,16 @@ import {
 } from "@/shared/components/ui/dropdown-menu";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
+import { useFont } from "@/context/FontContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState("AZ");
+  const { font: currentFont, setFont: handleFontChange } = useFont();
 
   const languages = ["AZ", "EN", "RU"];
+  const fonts = [ "Barlow", "Poppins"];
 
   const router = useRouter();
   const pathname = usePathname();
@@ -24,6 +27,7 @@ export default function Header() {
   const isOnTenderPage = pathname.startsWith('/tender');
 
   const userName = "Narmin Osmanova";
+
 
   return (
     <header className="z-20 w-full py-6 bg-white border-b border-zinc-200 sticky top-0">
@@ -37,22 +41,42 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md_lg:flex items-center space-x-8">
-          <Link href="#about" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="/#about" className="text-zinc-700 hover:text-zinc-900">
             Haqqımızda
           </Link>
-          <Link href="#contact" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="/#contact" className="text-zinc-700 hover:text-zinc-900">
             Bizimlə əlaqə
           </Link>
-          <Link href="#faq" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="/#faq" className="text-zinc-700 hover:text-zinc-900">
             Tez-tez verilən suallar
           </Link>
-          <Link href="#testimonials" className="text-zinc-700 hover:text-zinc-900">
+          <Link href="/#testimonials" className="text-zinc-700 hover:text-zinc-900">
             Müştəri rəyləri
           </Link>
           <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
             Xəbərlər
           </Link>
         </nav>
+
+        {/* Font Selection Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="border-none shadow-none focus:outline-none focus:ring-0 w-32 flex items-center gap-1">
+              {currentFont}
+              <ChevronDown className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {fonts.map((font) => (
+              <DropdownMenuItem
+                key={font}
+                onClick={() => handleFontChange(font)}
+              >
+                {font}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         {/* CTA / User Info Buttons */}
         <div className="hidden md_lg:flex items-center space-x-4">
@@ -107,19 +131,19 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md_lg:hidden h-screen p-4 pt-2 bg-white border-t border-zinc-100">
           <nav className="flex flex-col space-y-4">
-            <Link href="#about" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
               Haqqımızda
             </Link>
-            <Link href="#contact" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
               Bizimlə əlaqə
             </Link>
-            <Link href="/faq" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="/#faq" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
               Tez-tez verilən suallar
             </Link>
-            <Link href="/testimonials" className="text-zinc-700 hover:text-zinc-900 py-2">
+            <Link href="/#testimonials" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
               Müştəri rəyləri
             </Link>
-            <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
+            <Link href="/news" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900">
               Xəbərlər
             </Link>
             <div className="pt-4 flex flex-col space-y-3">

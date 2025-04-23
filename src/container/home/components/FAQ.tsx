@@ -28,7 +28,7 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <section className="py-10 md:py-20 bg-white max-w-[880px] w-full mx-auto" id="faq">
+    <section className="py-10 md:py-20 bg-white max-w-[880px] w-full mx-auto scroll-mt-24 md:scroll-mt-20" id="faq">
       <div className="container mx-auto px-4">
         <div className="mx-auto w-full">
           <div className="text-center mb-10">
