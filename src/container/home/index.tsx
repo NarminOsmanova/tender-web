@@ -7,6 +7,7 @@ import { CTASection } from '@/container/home/components/CTASection'
 import { Partners } from '@/container/home/components/Partners'
 import { Testimonials } from '@/container/home/components/Testimonials'
 import React from 'react'
+import { ActiveTenders } from './components/ActiveTenders'
 
 const HomeContainer = () => {
     return (
@@ -16,6 +17,7 @@ const HomeContainer = () => {
             <ContentSection />
             <CTASection />
             <ContactSection />
+            <ActiveTenders/>
             <FAQ />
             <Testimonials />
             <Partners />

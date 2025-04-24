@@ -9,7 +9,7 @@ export const mockTenders: TenderData[] = [
     companyLogo: "/logo-placeholder.svg", // Replace with actual logo path
     title: "Ofis avadanlıqları və kompüter texnikasının təchizatı tenderi",
     description: `Qısa təsvir: "Bakı ofisləri üçün 50 ədəd masaüstü kompüter, 25 ədəd laptop və müvafiq periferiya avadanlıqlarının alınması üzrə tender elan edilir."`,
-    status: "Tamamlanmış",
+    status: "Müddəti bitmiş",
     location: "Bakı",
     postedAgo: "3 ay əvvəl",
     deadline: "24.01.24-dək",
@@ -69,7 +69,7 @@ export const mockTenders: TenderData[] = [
     companyLogo: "/logo-placeholder.svg",
     title: "Grand-Mart MMC 135 Mağazası əsaslı təmiri üzrə tikinti işlərinin satınalınması",
     description: `Azərbaycan Respublikası Grand-Mart MMC tərəfindən "Bakı şəhəri, Nəsimi rayonu, Rəsulzadə küçəsi, 135 ünvannında yerləşən Grand-Mart 135 Mağazası"nın əsaslı təmiri üzrə tikinti işlərinin satın alınması" üzrə açıq tender elan edilir.`,
-    status: "Tamamlanmış",
+    status: "Müddəti bitmiş",
     location: "Sumqayıt",
     postedAgo: "3 ay əvvəl",
     deadline: "24.01.24-dək",
@@ -84,13 +84,28 @@ export const mockTenders: TenderData[] = [
     companyLogo: "/logo-placeholder.svg",
     title: "Grand-Mart MMC 135 Mağazası əsaslı təmiri üzrə tikinti işlərinin satınalınması",
     description: `Azərbaycan Respublikası Grand-Mart MMC tərəfindən "Bakı şəhəri, Nəsimi rayonu, Rəsulzadə küçəsi, 135 ünvannında yerləşən Grand-Mart 135 Mağazası"nın əsaslı təmiri üzrə tikinti işlərinin satın alınması" üzrə açıq tender elan edilir.`,
-    status: "Tamamlanmış",
+    status: "Davam edir",
     location: "Sumqayıt",
     postedAgo: "3 ay əvvəl",
     deadline: "24.01.24-dək",
     bids: "12 təklif",
     views: "112 baxış",
     slug: "grand-mart-mmc-135-magazasi-esasli-temiri-uzre-tikinti-ishlerinin-satin-alinmasi-6" 
+  },
+  {
+    id: 7,
+    category: "Tikinti",
+    companyName: "Grand-Mart MMC",
+    companyLogo: "/logo-placeholder.svg",
+    title: "Grand-Mart MMC 135 Mağazası əsaslı təmiri üzrə tikinti işlərinin satınalınması",
+    description: `Azərbaycan Respublikası Grand-Mart MMC tərəfindən "Bakı şəhəri, Nəsimi rayonu, Rəsulzadə küçəsi, 135 ünvannında yerləşən Grand-Mart 135 Mağazası"nın əsaslı təmiri üzrə tikinti işlərinin satın alınması" üzrə açıq tender elan edilir.`,
+    status: "Davam edir",
+    location: "Sumqayıt",
+    postedAgo: "3 ay əvvəl",
+    deadline: "24.01.24-dək",
+    bids: "12 təklif",
+    views: "112 baxış",
+    slug: "grand-mart-mmc-135-magazasi-esasli-temiri-uzre-tikinti-ishlerinin-satin-alinmasi-7" 
   },
   // Add more mock tenders as needed
 ]; 

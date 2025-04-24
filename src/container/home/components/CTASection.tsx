@@ -8,8 +8,8 @@ export function CTASection() {
   const router = useRouter();
   return (
     <section className="container relative w-full overflow-hidden">
-      <Image src="/Background.svg" alt="CTA background" layout="fill" objectFit="cover" className="absolute inset-0 w-full h-full opacity-50" />
-      <Image src="/CTABackground.svg" alt="CTA background" layout="fill" objectFit="cover" className="absolute inset-0 w-full h-full opacity-50" />
+      <Image src="/Background.svg" alt="CTA background" fill objectFit="cover" className="absolute inset-0 w-full h-full opacity-50" />
+      <Image src="/CTABackground.svg" alt="CTA background" fill objectFit="cover" className="absolute inset-0 w-full h-full opacity-50" />
       <div className="relative z-10 mx-auto px-4 py-[120px] text-center">
         <h2 className="text-2xl md:text-4xl font-medium text-zinc-900 mb-4">
          Şəffaf Tender İmkanları ilə Daha Yaxşı Təkliflər

@@ -39,3 +39,43 @@ export const poppins = localFont({
         },
     ],
 });
+
+export const montserrat = localFont({
+    src: [
+        {
+            path: './assets/fonts/Montserrat-Bold.ttf',
+            weight: '700',
+            style: 'normal',
+        },
+        {
+            path: './assets/fonts/Montserrat-Medium.ttf',
+            weight: '500',
+            style: 'normal',
+        },
+        {
+            path: './assets/fonts/Montserrat-Regular.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+    ],
+});
+
+export const sfpro = localFont({
+    src: [
+        {
+            path: './assets/fonts/SFPRODISPLAYBOLD.otf',
+            weight: '700',
+            style: 'normal',
+        },
+        {
+            path: './assets/fonts/SFPRODISPLAYMEDIUM.otf',
+            weight: '500',
+            style: 'normal',
+        },
+        {
+            path: './assets/fonts/SFPRODISPLAYREGULAR.otf',
+            weight: '400',
+            style: 'normal',
+        },
+    ],
+});
