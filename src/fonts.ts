@@ -60,20 +60,40 @@ export const montserrat = localFont({
     ],
 });
 
-export const sfpro = localFont({
+export const mulish = localFont({
     src: [
         {
-            path: './assets/fonts/SFPRODISPLAYBOLD.otf',
+            path: './assets/fonts/Mulish-Bold.ttf',
             weight: '700',
             style: 'normal',
         },
         {
-            path: './assets/fonts/SFPRODISPLAYMEDIUM.otf',
+            path: './assets/fonts/Mulish-Medium.ttf',
             weight: '500',
             style: 'normal',
         },
         {
-            path: './assets/fonts/SFPRODISPLAYREGULAR.otf',
+            path: './assets/fonts/Mulish-Regular.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+    ],
+});
+
+export const roboto = localFont({
+    src: [
+        {
+            path: './assets/fonts/Roboto_Condensed-Bold.ttf',
+            weight: '700',
+            style: 'normal',
+        },
+        {
+            path: './assets/fonts/Roboto_Condensed-Bold.ttf',
+            weight: '500',
+            style: 'normal',
+        },
+        {
+            path: './assets/fonts/Roboto_Condensed-Regular.ttf',
             weight: '400',
             style: 'normal',
         },

@@ -50,7 +50,7 @@ export default function Hero() {
       
       <div className="absolute top-56 left-1/2 -translate-x-1/2 z-10 container mx-auto px-4 text-center">
         <div className="space-y-8" >
-          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium">
+          <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium">
             Biz kimik?
           </span>
           

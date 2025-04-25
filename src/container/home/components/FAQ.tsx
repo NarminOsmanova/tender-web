@@ -32,7 +32,7 @@ export default function FAQ() {
       <div className="container mx-auto px-4">
         <div className="mx-auto w-full">
           <div className="text-center mb-10">
-            <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-lg font-medium mb-4">
+            <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium mb-4">
               Tez-tez verilən suallar
             </span>
             <h2 className="text-2xl md:text-4xl font-bold text-zinc-900">

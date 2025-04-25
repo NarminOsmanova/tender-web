@@ -19,7 +19,7 @@ export default function Header() {
   const { font: currentFont, setFont: handleFontChange } = useFont();
 
   const languages = ["AZ", "EN", "RU"];
-  const fonts = [ "Barlow", "Poppins", "Montserrat", "SFPro"];
+  const fonts = [ "Barlow", "Poppins", "Montserrat", "Mulish", "Roboto"];
 
   const router = useRouter();
   const pathname = usePathname();

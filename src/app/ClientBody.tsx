@@ -18,7 +18,7 @@
 "use client";
 
 import { useFont } from "@/context/FontContext";
-import { barlow, montserrat, poppins } from "@/fonts";
+import { barlow, montserrat, mulish, poppins, roboto } from "@/fonts";
 
 export default function ClientBody({ children }: { children: React.ReactNode }) {
   const { font } = useFont();
@@ -29,8 +29,10 @@ export default function ClientBody({ children }: { children: React.ReactNode }) 
         return poppins.className;
       case "Montserrat":
         return montserrat.className;
-      // case "SFPro":
-      //   return sfpro.className;
+      case "Mulish":
+        return mulish.className;
+      case "Roboto":
+        return roboto.className;
       case "Barlow":
       default:
         return barlow.className;
@@ -39,7 +41,7 @@ export default function ClientBody({ children }: { children: React.ReactNode }) 
   const fontClass = getFontClass();
   return (
     <html lang="en" className={fontClass}>
-      <body className={`antialiased min-h-screen bg-white ${fontClass}`}  cz-shortcut-listen="true">
+      <body className={`antialiased min-h-screen bg-white ${fontClass}`} cz-shortcut-listen="true">
         {children}
       </body>
     </html>
