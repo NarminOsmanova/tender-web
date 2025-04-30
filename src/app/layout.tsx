@@ -38,6 +38,7 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import ClientBody from "@/app/ClientBody";
 import { FontProvider } from "@/context/FontContext";
+import { TanStackQueryProvider } from "@/lib/tanstack-query";
 
 export const metadata: Metadata = {
   title: "Hackhub.io - Inspiration for Geeks",
@@ -53,8 +54,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <FontProvider>
-      <ClientBody>{children}</ClientBody>
-    </FontProvider>
+    <TanStackQueryProvider>
+      <FontProvider>
+        <ClientBody>{children}</ClientBody>
+      </FontProvider>
+    </TanStackQueryProvider>
   );
 }

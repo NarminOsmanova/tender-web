@@ -9,6 +9,9 @@ import { Button } from "@/shared/components/ui/button";
 import { EnvelopeClosedIcon, HomeIcon } from "@radix-ui/react-icons";
 import { PhoneIcon } from "lucide-react";
 import Link from "next/link";
+import { useMutation } from "@tanstack/react-query";
+import { createContact, ContactFormData } from "@/services/contact";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   companyName: z.string().min(2, {
@@ -17,7 +20,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Düzgün email ünvanı daxil edin",
   }),
-  phone: z.string().regex(/^\+994\([0-9]{2}\)\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}$/, {
+  phoneNumber: z.string().regex(/^\+994\([0-9]{2}\)\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}$/, {
     message: "Telefon nömrəsi düzgün formatda deyil: +994(00) 000 00 00",
   }),
   subject: z.string().min(5, {
@@ -34,15 +37,26 @@ export default function ContactSection() {
     defaultValues: {
       companyName: "",
       email: "",
-      phone: "",
+      phoneNumber: "",
       subject: "",
       message: "",
     },
   });
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: createContact,
+    onSuccess: () => {
+      toast.success("Mesajınız uğurla göndərildi!");
+      form.reset();
+    },
+    onError: (error) => {
+      toast.error("Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
+      console.error("Contact form error:", error);
+    },
+  });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // Burada form məlumatlarını göndərmək üçün API çağırışı edə bilərsiniz
+    mutate(values);
   }
 
   return (
@@ -144,11 +158,11 @@ export default function ContactSection() {
                 <Input
                   id="phone"
                   placeholder="+994(00) 000 00 00"
-                  {...form.register("phone")}
+                  {...form.register("phoneNumber")}
                 />
-                {form.formState.errors.phone && (
+                {form.formState.errors.phoneNumber && (
                   <p className="text-red-500 text-sm mt-1">
-                    {form.formState.errors.phone.message}
+                    {form.formState.errors.phoneNumber.message}
                   </p>
                 )}
               </div>
@@ -192,8 +206,12 @@ export default function ContactSection() {
                 )}
               </div>
 
-              <Button type="submit" className="w-full bg-zinc-900 hover:bg-zinc-800 rounded-xl h-14">
-                Send
+              <Button 
+                type="submit" 
+                className="w-full bg-zinc-900 hover:bg-zinc-800 rounded-xl h-14"
+                disabled={isPending}
+              >
+                {isPending ? "Göndərilir..." : "Send"}
               </Button>
             </form>
           </div>
