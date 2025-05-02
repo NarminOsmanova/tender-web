@@ -11,23 +11,26 @@ import { PhoneIcon } from "lucide-react";
 import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
 import { createContact, ContactFormData } from "@/services/contact";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
+import PhoneInput from "react-phone-number-input/input";
+import "react-phone-number-input/style.css";
+import { isValidPhoneNumber } from "libphonenumber-js";
 
 const formSchema = z.object({
-  companyName: z.string().min(2, {
-    message: "Şirkət adı minimum 2 simvol olmalıdır",
+  companyName: z.string().min(1, {
+    message: "Şirkət adı daxil etmək məcburidir",
   }),
   email: z.string().email({
     message: "Düzgün email ünvanı daxil edin",
   }),
-  phoneNumber: z.string().regex(/^\+994\([0-9]{2}\)\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}$/, {
-    message: "Telefon nömrəsi düzgün formatda deyil: +994(00) 000 00 00",
+  phoneNumber: z.string().refine((val) => isValidPhoneNumber(val || "", "AZ"), {
+    message: "Etibarlı Azərbaycan telefon nömrəsi daxil edin",
   }),
-  subject: z.string().min(5, {
-    message: "Mövzu minimum 5 simvol olmalıdır",
+  subject: z.string().min(1, {
+    message: "Mövzu daxil etmək məcburidir",
   }),
-  message: z.string().min(10, {
-    message: "Mesaj minimum 10 simvol olmalıdır",
+  message: z.string().min(1, {
+    message: "Mesaj daxil etmək məcburidir",
   }),
 });
 
@@ -45,12 +48,12 @@ export default function ContactSection() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: createContact,
-    onSuccess: () => {
-      toast.success("Mesajınız uğurla göndərildi!");
+    onSuccess: (response) => {
+      toast.success(response.message || "Mesajınız uğurla göndərildi!");
       form.reset();
     },
-    onError: (error) => {
-      toast.error("Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
       console.error("Contact form error:", error);
     },
   });
@@ -58,18 +61,23 @@ export default function ContactSection() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutate(values);
   }
+  const { setValue, watch } = form;
 
   return (
-    <section className="py-10 md:py-20 bg-white w-full scroll-mt-24 md:scroll-mt-20" id="contact">
-      <div className="container mx-auto px-4" >
+    <section
+      className="py-10 md:py-20 bg-white w-full scroll-mt-24 md:scroll-mt-20"
+      id="contact"
+    >
+      <Toaster position="top-right" richColors />
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto justify-between">
           {/* Sol tərəf - Əlaqə məlumatları */}
           <div className="bg-gradient-to-r from-[#EAFFFC] to-white rounded-2xl p-8">
             {/* <span className="inline-block text-teal-600 mb-4">Bizimlə əlaqə</span> */}
             <h2 className="text-2xl md:text-4xl font-bold text-zinc-900 mb-8">
-            Bizimlə əlaqə
+              Bizimlə əlaqə
             </h2>
-            
+
             <div className="space-y-6">
               {/* Phone Link */}
               <Link
@@ -77,20 +85,24 @@ export default function ContactSection() {
                 className="flex items-center gap-3 group"
               >
                 <PhoneIcon className="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition-colors" />
-                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">+994 00 222 22 22</span>
+                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">
+                  +994 00 222 22 22
+                </span>
               </Link>
-              
+
               {/* Email Link */}
               <Link
                 href="mailto:info.tender.az" // mailto: prefix for emails
                 className="flex items-center gap-3 group"
               >
                 <EnvelopeClosedIcon className="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition-colors" />
-                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">info.tender.az</span>
+                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">
+                  info.tender.az
+                </span>
               </Link>
-              
+
               {/* Address Link */}
-              <a 
+              <a
                 // Google Maps link (URL encode the address)
                 href="https://www.google.com/maps/search/?api=1&query=B%C9%99%C5%9Fir+B%C3%BCnyadov+k%C3%BC%C3%A7.+134"
                 target="_blank" // Open in new tab
@@ -98,11 +110,11 @@ export default function ContactSection() {
                 className="flex items-center gap-3 group"
               >
                 <HomeIcon className="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition-colors" />
-                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">Bəşir Bünyadov küç. 134</span>
+                <span className="text-zinc-600 group-hover:text-zinc-900 transition-colors">
+                  Bəşir Bünyadov küç. 134
+                </span>
               </a>
             </div>
-
-          
           </div>
 
           {/* Sağ tərəf - Form */}
@@ -111,7 +123,10 @@ export default function ContactSection() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-1">
-                  <label htmlFor="companyName" className="text-zinc-900 text-sm">
+                  <label
+                    htmlFor="companyName"
+                    className="text-zinc-900 text-sm"
+                  >
                     Company name
                   </label>
                   <span className="text-teal-600">*</span>
@@ -155,11 +170,17 @@ export default function ContactSection() {
                   </label>
                   <span className="text-teal-600">*</span>
                 </div>
-                <Input
-                  id="phone"
-                  placeholder="+994(00) 000 00 00"
-                  {...form.register("phoneNumber")}
-                />
+                <div className="relative">
+                  <PhoneInput
+                    country="AZ"
+                    international
+                    withCountryCallingCode
+                    value={watch("phoneNumber")}
+                    onChange={(value) => setValue("phoneNumber", value ?? "")}
+                    className="border px-3 py-2 rounded w-full"
+                    placeholder="994 55 111 11 11"
+                  />
+                </div>
                 {form.formState.errors.phoneNumber && (
                   <p className="text-red-500 text-sm mt-1">
                     {form.formState.errors.phoneNumber.message}
@@ -206,8 +227,8 @@ export default function ContactSection() {
                 )}
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-zinc-900 hover:bg-zinc-800 rounded-xl h-14"
                 disabled={isPending}
               >
@@ -219,4 +240,4 @@ export default function ContactSection() {
       </div>
     </section>
   );
-} 
+}
