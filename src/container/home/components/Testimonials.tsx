@@ -9,65 +9,67 @@ import {
   CarouselPrevious,
 } from "@/shared/components/ui/carousel"
 import { Star } from "lucide-react"
+import { useTranslations } from "next-intl"
 
-const testimonials = [
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
-    name: "Company name",
-    rating: 4,
-  },
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
-    name: "Company name",
-    rating: 5,
-  },
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
-    name: "Company name",
-    rating: 4,
-  },
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
-    name: "Another Company",
-    rating: 5,
-  },
-  {
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
-    name: "Another Company",
-    rating: 5,
-  },
-]
-
-// Helper function to group testimonials
-const groupTestimonials = (data: typeof testimonials, size: number) => {
-  const grouped = []
-  for (let i = 0; i < data.length; i += size) {
-    grouped.push(data.slice(i, i + size))
-  }
-  return grouped
-}
-
-function StarRating({ rating }: { rating: number }) {
-  const stars = []
-  for (let i = 1; i <= 5; i++) {
-    stars.push(
-      <Star
-        key={i}
-        className={`w-5 h-5 ${
-          i <= rating ? "fill-yellow-400 text-yellow-400" : "text-yellow-400"
-        }`}
-      />
-    )
-  }
-  return <div className="flex gap-1">{stars}</div>
-}
 
 export function Testimonials() {
+  const t = useTranslations("testimonials");
+  const testimonials = [
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
+      name: "Company name",
+      rating: 4,
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
+      name: "Company name",
+      rating: 5,
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
+      name: "Company name",
+      rating: 4,
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
+      name: "Another Company",
+      rating: 5,
+    },
+    {
+      quote:
+        "Lorem ipsum dolor sit amet consectetur. Ut duis felis vitae lectus amet vel enim et. Ultrices neque ac nibh neque id dui semper mattis.",
+      name: "Another Company",
+      rating: 5,
+    },
+  ]
+  
+  // Helper function to group testimonials
+  const groupTestimonials = (data: typeof testimonials, size: number) => {
+    const grouped = []
+    for (let i = 0; i < data.length; i += size) {
+      grouped.push(data.slice(i, i + size))
+    }
+    return grouped
+  }
+  
+  function StarRating({ rating }: { rating: number }) {
+    const stars = []
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <Star
+          key={i}
+          className={`w-5 h-5 ${
+            i <= rating ? "fill-yellow-400 text-yellow-400" : "text-yellow-400"
+          }`}
+        />
+      )
+    }
+    return <div className="flex gap-1">{stars}</div>
+  }
   const groupedData = groupTestimonials(testimonials, 3)
 
   return (
@@ -75,10 +77,10 @@ export function Testimonials() {
       <div className="container">
         <div className="text-center mb-16">
           <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium mb-4">
-            Müştəri rəyləri
+            {t("subtitle")}
           </span>
           <h2 className="text-2xl md:text-4xl font-medium text-zinc-900">
-            Müştərilərimiz bizim haqqımızda nələr düşünür?
+            {t("title")}
           </h2>
         </div>
 

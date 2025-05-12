@@ -15,7 +15,7 @@ import { toast, Toaster } from "sonner";
 import PhoneInput from "react-phone-number-input/input";
 import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "libphonenumber-js";
-
+import { useTranslations } from "next-intl";
 const formSchema = z.object({
   companyName: z.string().min(1, {
     message: "Şirkət adı daxil etmək məcburidir",
@@ -35,6 +35,7 @@ const formSchema = z.object({
 });
 
 export default function ContactSection() {
+  const t = useTranslations("contact");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -75,7 +76,7 @@ export default function ContactSection() {
           <div className="bg-gradient-to-r from-[#EAFFFC] to-white rounded-2xl p-8">
             {/* <span className="inline-block text-teal-600 mb-4">Bizimlə əlaqə</span> */}
             <h2 className="text-2xl md:text-4xl font-bold text-zinc-900 mb-8">
-              Bizimlə əlaqə
+              {t("title")}
             </h2>
 
             <div className="space-y-6">
@@ -119,7 +120,7 @@ export default function ContactSection() {
 
           {/* Sağ tərəf - Form */}
           <div className="max-w-[504px] w-full">
-            <h5 className="text-xl py-3">Müraciət et</h5>
+            <h5 className="text-xl py-3">{t("apply")}</h5>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-1">
@@ -127,13 +128,13 @@ export default function ContactSection() {
                     htmlFor="companyName"
                     className="text-zinc-900 text-sm"
                   >
-                    Company name
+                    {t("company")}
                   </label>
                   <span className="text-teal-600">*</span>
                 </div>
                 <Input
                   id="companyName"
-                  placeholder="Type your company name"
+                  placeholder={t("typecompany")}
                   {...form.register("companyName")}
                 />
                 {form.formState.errors.companyName && (
@@ -146,14 +147,14 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-1">
                   <label htmlFor="email" className="text-zinc-900 text-sm">
-                    E-mail address
+                    {t("email")}
                   </label>
                   <span className="text-teal-600">*</span>
                 </div>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Type your e-mail address"
+                  placeholder={t("typeemail")}
                   {...form.register("email")}
                 />
                 {form.formState.errors.email && (
@@ -166,7 +167,7 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-1">
                   <label htmlFor="phone" className="text-zinc-900 text-sm">
-                    Phone number
+                    {t("phone")}
                   </label>
                   <span className="text-teal-600">*</span>
                 </div>
@@ -191,13 +192,13 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-1">
                   <label htmlFor="subject" className="text-zinc-900 text-sm">
-                    Subject
+                    {t("subject")}
                   </label>
                   <span className="text-teal-600">*</span>
                 </div>
                 <Input
                   id="subject"
-                  placeholder="Type your subject here"
+                  placeholder={t("typesubject")}
                   {...form.register("subject")}
                 />
                 {form.formState.errors.subject && (
@@ -210,13 +211,13 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-1">
                   <label htmlFor="message" className="text-zinc-900 text-sm">
-                    Message
+                    {t("message")}
                   </label>
                   <span className="text-teal-600">*</span>
                 </div>
                 <Textarea
                   id="message"
-                  placeholder="Type your message here"
+                  placeholder={t("typemessage")}
                   className="min-h-[120px]"
                   {...form.register("message")}
                 />
@@ -232,7 +233,7 @@ export default function ContactSection() {
                 className="w-full bg-zinc-900 hover:bg-zinc-800 rounded-xl h-14"
                 disabled={isPending}
               >
-                {isPending ? "Göndərilir..." : "Send"}
+                {isPending ? t("sending") : t("send")}
               </Button>
             </form>
           </div>

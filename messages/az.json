@@ -1,0 +1,69 @@
+{
+    "header": {
+      "about": "Haqqımızda",
+      "contact":"Bizimlə əlaqə",
+      "faq":"Tez-tez verilən suallar",
+      "testimonials":"Müştəri rəyləri",
+      "news":"Xəbərlər",
+      "login": "Daxil ol",
+      "logout": "Çıxış",
+      "copyright": "Copyright 2025. Bütün hüquqlar qorunur."
+    },
+    "home":{
+      "subtitle":"Biz kimik",
+      "title":"Geniş Mağaza Şəbəkəmizlə Xidmətinizdəyik",
+      "description":"Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən lider brend olaraq, müştərilərimizə keyfiyyətli və sərfəli alış-veriş təcrübəsi təqdim edirik.",
+      "button":"Indi təklif ver"
+    },
+    "network":{
+      "subtitle":"Şəbəkəmiz",
+      "title":"Supermarketlər şəbəkəmiz",
+      "megastore":"Megastore supermarketlər şəbəkəsi",
+      "bolmart":"Bolmart supermarketlər şəbəkəsi",
+      "grandmart":"Grandmart supermarketlər şəbəkəsi",
+      "novashome":"Novas Home",
+      "megadescription":"Azərbaycan Respublikasında hazırda 21 mağaza ilə fəaliyyət göstərən Megastore marketlər şəbəkəsi 2010-cu ildə təsis edilmişdir.",
+      "bolmartdescription":"Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən Bolmart supermarketlər şəbəkəsi hazırda 50-yə yaxın filialla müştərilərin ixtiyarındadır.",
+      "grandmartdescription":"Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən Grandmart supermarketlər şəbəkəsi hazırda 30-dan çox filialla müştərilərin ixtiyarındadır.",
+      "novashomedescription":"Novas Home 2019-cu il tarixindən fəaliyyətə başlamışdır. Brendin filialları bizim market mağazalarında yerləşir. Qısa zaman ərzində Novas Home konsepsiyası yeni filiallarda genişlənmişdir.",
+      "link":"Sayta keç"
+    },
+    "partners":{
+      "subtitle":"Partnyorlar",
+      "title":"Bizi dəstəkləyən partnyorlar"
+    },
+    "testimonials":{
+      "subtitle":"Müştəri rəyləri",
+      "title":"Müştərilərimiz bizim haqqımızda nələr düşünür?"
+    },
+    "faq":{
+      "title":"Tez-tez verilən suallar",
+      "subtitle":"Sualınız var? Bütün cavablar bizdə!"
+    },
+    "cta":{
+      "title":"Şəffaf Tender İmkanları ilə Daha Yaxşı Təkliflər",
+      "description":"Tender prosesində tam şəffaflıq təmin edilir, hər bir addım açıq və aydındır. Hesabınıza daxil olaraq tenderdə iştirak edə bilərsiniz",
+      "button":"Daxil ol"
+    },
+    "contact":{
+      "title":"Bizimlə əlaqə",
+      "apply":"Müraciət et",
+      "company":"Şirkət adı",
+      "email":"Email",
+      "phone":"Telefon nömrəsi",
+      "subject":"Mövzu",
+      "message":"Mesaj",
+      "send":"Göndər",
+      "sending":"Göndərilir...",
+      "typecompany":"Şirkətinizin adını yazın",
+      "typeemail":"Email ünvanınızı yazın",
+      "typephone":"Telefon nömrənizi yazın",
+      "typesubject":"Mövzunu bura yazın",
+      "typemessage":"Mesajınızı bura yazın"
+    },
+    "activeTenders":{
+      "title":"Aktiv Tenderlər",
+      "subtitle":"Tenderlər",
+      "button":"Daha çox"
+    }
+  } 

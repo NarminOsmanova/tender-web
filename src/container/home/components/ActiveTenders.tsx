@@ -14,7 +14,7 @@ import { ChevronRight, Clock4, Eye, Hourglass, MapPin, MessageCircle } from "luc
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/shared/components/ui/button"
-
+import { useTranslations } from "next-intl";
 
 export function ActiveTenders() {
     const plugin = React.useRef(
@@ -24,15 +24,16 @@ export function ActiveTenders() {
     const isOnTenderPage = pathname.startsWith('/tender/');
     const isOnCartPage = pathname.startsWith('/cart');
     const router = useRouter()
+    const t = useTranslations("activeTenders");
     return (
         <section className="py-10 md:py-20 w-full">
             <div className="container relative">
                 <div className="text-center mb-16">
                     <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium mb-4">
-                        Tenderlər
+                        {t("subtitle")}
                     </span>
                     <h2 className="text-2xl md:text-4xl font-medium text-zinc-900">
-                        Aktiv Tenderlər
+                        {t("title")}
                     </h2>
                 </div>
 
@@ -105,7 +106,7 @@ export function ActiveTenders() {
                         </CarouselContent>
                     </Carousel>
                     <Button className="bg-zinc-900 hover:bg-zinc-800 text-white w-[160px]" onClick={() => router.push("/login")}>
-                        Daha çox
+                        {t("button")}
                     </Button>
                 </div>
             </div>

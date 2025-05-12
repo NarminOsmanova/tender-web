@@ -1,11 +1,13 @@
 "use client";
 
 import { Button } from "@/shared/components/ui/button";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const router=useRouter()
+  const t = useTranslations("home");
   return (
     <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden" id="about" >
       {/* Desktop background */}
@@ -51,21 +53,21 @@ export default function Hero() {
       <div className="absolute top-56 left-1/2 -translate-x-1/2 z-10 container mx-auto px-4 text-center">
         <div className="space-y-8" >
           <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium">
-            Biz kimik?
+            {t("subtitle")}
           </span>
           
           <h1 className="text-2xl md:text-5xl lg:text-[56px] font-bold text-zinc-900 tracking-tight">
-          Geniş Mağaza Şəbəkəmizlə Xidmətinizdəyik
+          {t("title")}
           </h1>
           
           <p className="text-zinc-600 max-w-3xl mx-auto text-lg">
-          Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən lider brend olaraq, müştərilərimizə keyfiyyətli və sərfəli alış-veriş təcrübəsi təqdim edirik.
+          {t("description")}
            
           </p>
           
           <div className="mt-10">
             <Button className="bg-white hover:bg-zinc-50 text-zinc-900 px-8 py-6 text-lg rounded-full shadow-sm hover:shadow-md transition-all duration-200" onClick={()=>{router.push("/login")}}>
-              İndi təklif ver
+              {t("button")}
             </Button>
           </div>
         </div>

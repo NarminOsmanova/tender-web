@@ -9,34 +9,36 @@ import {
 } from "@/shared/components/ui/carousel"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
+import { useTranslations } from "next-intl"
 
-const partners = [
-  { name: "Novas Home", logo: "/Novashome.svg" },
-  { name: "Veysəloğlu", logo: "/veyseloglu.svg" },
-  { name: "Azcake", logo: "/azcake.svg" },
-  { name: "Ozio", logo: "/ozio.svg" },
-  { name: "Pasha Bank", logo: "/pashabank.svg" },
-  { name: "Azersun", logo: "/azersun.svg" },
-  { name: "Ozio", logo: "/ozio.svg" },
-  { name: "Pasha Bank", logo: "/pashabank.svg" },
-  { name: "Novas Home", logo: "/Novashome.svg" },
-  { name: "Veysəloğlu", logo: "/veyseloglu.svg" },
-]
 
 export function Partners() {
   const plugin = React.useRef(
     Autoplay({ delay: 1000, stopOnInteraction: false })
   )
-
+  const t = useTranslations("partners");
+  const partners = [
+    { name: "Novas Home", logo: "/Novashome.svg" },
+    { name: "Veysəloğlu", logo: "/veyseloglu.svg" },
+    { name: "Azcake", logo: "/azcake.svg" },
+    { name: "Ozio", logo: "/ozio.svg" },
+    { name: "Pasha Bank", logo: "/pashabank.svg" },
+    { name: "Azersun", logo: "/azersun.svg" },
+    { name: "Ozio", logo: "/ozio.svg" },
+    { name: "Pasha Bank", logo: "/pashabank.svg" },
+    { name: "Novas Home", logo: "/Novashome.svg" },
+    { name: "Veysəloğlu", logo: "/veyseloglu.svg" },
+  ]
+  
   return (
     <section className="py-10 md:py-20 bg-[#FAFBFF] w-full">
       <div className="container relative">
         <div className="text-center mb-16">
           <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium mb-4">
-            Partnyorlar
+            {t("subtitle")}
           </span>
           <h2 className="text-2xl md:text-4xl font-medium text-zinc-900">
-            Bizi dəstəkləyən partnyorlar
+            {t("title")}
           </h2>
         </div>
 

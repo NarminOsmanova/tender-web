@@ -17,6 +17,22 @@ const getTokenFromCookie = (): string | null => {
   return null;
 };
 
+const getLocaleFromCookie = (): string => {
+  if (typeof document === "undefined") return "en";
+
+  const cookieString = document.cookie;
+  const cookies = cookieString.split("; ");
+  const localeCookie = cookies.find((cookie) =>
+    cookie.startsWith("NEXT_LOCALE=")
+  );
+
+  if (localeCookie) {
+    return localeCookie.split("=")[1];
+  }
+
+  return "en";
+};
+
 const clearAuthCookie = () => {
   document.cookie =
     "auth-token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; SameSite=Strict;";
@@ -30,9 +46,15 @@ const apiClient = axios.create({
 apiClient.interceptors.request.use(
   (config) => {
     const token = getTokenFromCookie();
+    const locale = getLocaleFromCookie();
+    
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    
+    // Add Accept-Language header
+    config.headers['Accept-Language'] = locale;
+    
     return config;
   },
   (error) => Promise.reject(error)

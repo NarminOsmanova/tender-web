@@ -6,10 +6,9 @@ import ContactSection from '@/container/home/components/ContactSection'
 import { CTASection } from '@/container/home/components/CTASection'
 import { Partners } from '@/container/home/components/Partners'
 import { Testimonials } from '@/container/home/components/Testimonials'
-import React from 'react'
 import { ActiveTenders } from './components/ActiveTenders'
 
-const HomeContainer = () => {
+export default function HomeContainer() {
     return (
         <section className='w-full'>
             <Hero />
@@ -24,5 +23,3 @@ const HomeContainer = () => {
         </section>
     )
 }
-
-export default HomeContainer

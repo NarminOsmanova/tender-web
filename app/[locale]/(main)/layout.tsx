@@ -1,9 +1,6 @@
-import "@/app/globals.css";
-import ClientBody from "@/app/ClientBody";
 import { Footer } from "@/shared/components/Footer";
 import { Header } from "@/shared/components/Header";
-
-
+// import "@/app/globals.css";
 
 export default function RootLayout({
     children,
@@ -13,10 +10,8 @@ export default function RootLayout({
     return (
         <>
             <Header />
-            <ClientBody>{children}</ClientBody>
+            {children}
             <Footer />
         </>
-
-
     );
 }

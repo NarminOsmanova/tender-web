@@ -2,16 +2,19 @@
 
 import Link from "next/link"
 import { Instagram, Facebook, Linkedin, Phone, Mail, MapPin } from "lucide-react"
+import { useTranslations } from "next-intl";
 
-const navigation = [
-  { name: "Haqqımızda", href: "/about" },
-  { name: "Bizimlə əlaqə", href: "/contact" },
-  { name: "Tez-tez verilən suallar", href: "/faq" },
-  { name: "Müştəri rəyləri", href: "/testimonials" },
-  { name: "Xəbərlər", href: "/news" }
-]
+
 
 export default function Footer() {
+  const t = useTranslations("header");
+  const navigation = [
+    { name: t("about"), href: "/about" },
+    { name: t("contact"), href: "/contact" },
+    { name: t("faq"), href: "/faq" },
+    { name: t("testimonials"), href: "/testimonials" },
+    { name: t("news"), href: "/news" }
+  ]
   return (
     <footer className="bg-white w-full">
       <div className="container py-10 md:py-16 w-full px-4">
@@ -44,7 +47,7 @@ export default function Footer() {
           {/* Bottom section - Copyright */}
           <div className="flex flex-col-reverse md:flex-row gap-4 justify-between w-full pt-8 border-t border-zinc-200 items-start md:items-center">
             <p className="text-zinc-600 pt-4">
-              © Copyright 2025. All rights reserved.
+              © {t("copyright")}
             </p>
             <div className="mt-0 flex flex-col md:flex-row items-start md:items-center justify-center gap-4">
               <Link

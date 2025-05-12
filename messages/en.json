@@ -1,0 +1,69 @@
+{
+  "header": {
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "testimonials": "Testimonials",
+    "news": "News",
+    "login": "Login",
+    "logout": "Logout",
+    "copyright": "Copyright 2025. All rights reserved"
+  },
+  "home": {
+    "subtitle": "Who we are",
+    "title": "Wide Network of Stores at Your Service",
+    "description": "As a leading brand in Azerbaijan's market for over 20 years, we offer a high-quality and cost-effective shopping experience to our customers.",
+    "button": "Make an offer now"
+  },
+  "network": {
+    "subtitle": "Our Network",
+    "title": "Our Supermarket Network",
+    "megastore": "Megastore supermarket network",
+    "bolmart": "Bolmart supermarket network",
+    "grandmart": "Grandmart supermarket network",
+    "novashome": "Novas Home",
+    "megadescription": "The Megastore supermarket chain, which currently operates with 21 stores in the Republic of Azerbaijan, was established in 2010.",
+    "bolmartdescription": "Operating in the Azerbaijani retail market for nearly 20 years, the Bolmart supermarket chain currently serves customers with nearly 50 branches.",
+    "grandmartdescription": "Operating in the Azerbaijani retail market for nearly 20 years, the Grandmart supermarket chain currently serves customers with over 30 branches.",
+    "novashomedescription": "Novas Home started operations in 2019. The brand’s branches are located inside our supermarket stores. In a short time, the Novas Home concept has expanded to new branches.",
+    "link": "Go to website"
+  },
+  "partners": {
+    "subtitle": "Partners",
+    "title": "Partners who support us"
+  },
+  "testimonials": {
+    "subtitle": "Testimonials",
+    "title": "What our customers say about us"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Have a question? We've got all the answers!"
+  },
+  "cta": {
+    "title": "Better Offers with Transparent Tenders",
+    "description": "Transparency is ensured throughout the tender process, and you can participate in the tender with your account",
+    "button": "Login"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "company": "Company Name",
+    "email": "Email address",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "apply": "Apply",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "typecompany": "Type your company name",
+    "typeemail": "Type your email address",
+    "typephone": "Type your phone number",
+    "typesubject": "Type your subject here",
+    "typemessage": "Type your message here"
+  },
+  "activeTenders": {
+    "title": "Active Tenders",
+    "subtitle": "Tenders",
+    "button": "More"
+  }
+}

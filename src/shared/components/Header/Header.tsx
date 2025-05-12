@@ -12,6 +12,8 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import { useFont } from "@/context/FontContext";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,16 +21,15 @@ export default function Header() {
   const { font: currentFont, setFont: handleFontChange } = useFont();
 
   const languages = ["AZ", "EN", "RU"];
-  const fonts = [ "Barlow", "Poppins", "Montserrat", "Mulish", "Roboto"];
+  const fonts = ["Barlow", "Poppins", "Montserrat", "Mulish", "Roboto"];
 
   const router = useRouter();
   const pathname = usePathname();
 
-  const isOnTenderPage = pathname.startsWith('/tender');
+  const isOnTenderPage = pathname.startsWith("/tender");
 
   const userName = "Narmin Osmanova";
-
-
+const t = useTranslations("header");
   return (
     <header className="z-20 w-full py-6 bg-white border-b border-zinc-200 sticky top-0">
       <div className="container px-4 mx-auto flex justify-between items-center">
@@ -42,26 +43,32 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md_lg:flex items-center space-x-8">
           <Link href="/#about" className="text-zinc-700 hover:text-zinc-900">
-            Haqqımızda
+            {t("about")}
           </Link>
           <Link href="/#contact" className="text-zinc-700 hover:text-zinc-900">
-            Bizimlə əlaqə
+            {t("contact")}
           </Link>
           <Link href="/#faq" className="text-zinc-700 hover:text-zinc-900">
-            Tez-tez verilən suallar
+            {t("faq")}
           </Link>
-          <Link href="/#testimonials" className="text-zinc-700 hover:text-zinc-900">
-            Müştəri rəyləri
+          <Link
+            href="/#testimonials"
+            className="text-zinc-700 hover:text-zinc-900"
+          >
+            {t("testimonials")}
           </Link>
           <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
-            Xəbərlər
+            {t("news")}
           </Link>
         </nav>
 
         {/* Font Selection Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="border-none shadow-none focus:outline-none focus:ring-0 w-32 flex items-center gap-1">
+            <Button
+              variant="outline"
+              className="border-none shadow-none focus:outline-none focus:ring-0 w-32 flex items-center gap-1"
+            >
               {currentFont}
               <ChevronDown className="h-4 w-4" />
             </Button>
@@ -80,7 +87,7 @@ export default function Header() {
 
         {/* CTA / User Info Buttons */}
         <div className="hidden md_lg:flex items-center space-x-4">
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="border-none shadow-none focus:outline-none focus:ring-0 w-16 flex items-center gap-1">
                 {currentLanguage}
@@ -97,11 +104,17 @@ export default function Header() {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
-          </DropdownMenu>
-
+          </DropdownMenu> */}
+          <LanguageSwitcher />
           {isOnTenderPage ? (
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="icon" onClick={()=>{router.push("/cart")}}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => {
+                  router.push("/cart");
+                }}
+              >
                 <ShoppingBag className="h-5 w-5 text-zinc-700" />
                 <span className="sr-only">Cart</span>
               </Button>
@@ -111,8 +124,11 @@ export default function Header() {
               </div>
             </div>
           ) : (
-            <Button className="bg-zinc-900 hover:bg-zinc-800 text-white" onClick={() => router.push("/login")}>
-              Daxil ol
+            <Button
+              className="bg-zinc-900 hover:bg-zinc-800 text-white"
+              onClick={() => router.push("/login")}
+            >
+              {t("login")}
             </Button>
           )}
         </div>
@@ -131,23 +147,43 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md_lg:hidden h-screen p-4 pt-2 bg-white border-t border-zinc-100">
           <nav className="flex flex-col space-y-4">
-            <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
-              Haqqımızda
+            <Link
+              href="/#about"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-zinc-700 hover:text-zinc-900 py-2"
+            >
+              {t("about")}
             </Link>
-            <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
-              Bizimlə əlaqə
+            <Link
+              href="/#contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-zinc-700 hover:text-zinc-900 py-2"
+            >
+              {t("contact")}
             </Link>
-            <Link href="/#faq" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
-              Tez-tez verilən suallar
+            <Link
+              href="/#faq"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-zinc-700 hover:text-zinc-900 py-2"
+            >
+              {t("faq")}
             </Link>
-            <Link href="/#testimonials" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900 py-2">
-              Müştəri rəyləri
+            <Link
+              href="/#testimonials"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-zinc-700 hover:text-zinc-900 py-2"
+            >
+              {t("testimonials")}
             </Link>
-            <Link href="/news" onClick={() => setIsMenuOpen(false)} className="text-zinc-700 hover:text-zinc-900">
-              Xəbərlər
+            <Link
+              href="/news"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-zinc-700 hover:text-zinc-900"
+            >
+              {t("news")}
             </Link>
             <div className="pt-4 flex flex-col space-y-3">
-              <DropdownMenu>
+              {/* <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="w-full justify-center border-[4px] border-zinc-300 outline-none flex items-center gap-1">
                     {currentLanguage}
@@ -164,7 +200,8 @@ export default function Header() {
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
-              </DropdownMenu>
+              </DropdownMenu> */}
+          <LanguageSwitcher />
 
               {isOnTenderPage ? (
                 <div className="flex items-center justify-between p-2 border rounded-md">
@@ -178,8 +215,11 @@ export default function Header() {
                   </Button>
                 </div>
               ) : (
-                <Button className="w-full justify-center bg-zinc-900 hover:bg-zinc-800 text-white" onClick={() => router.push("/login")}>
-                  Daxil ol
+                <Button
+                  className="w-full justify-center bg-zinc-900 hover:bg-zinc-800 text-white"
+                  onClick={() => router.push("/login")}
+                >
+                  {t("login")}
                 </Button>
               )}
             </div>

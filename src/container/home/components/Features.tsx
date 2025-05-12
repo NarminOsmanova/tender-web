@@ -1,49 +1,52 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
-const supermarkets = [
-  {
-    id: 1,
-    logo: "/Megastore.svg",
-    title: "Megastore supermarketlər şəbəkəsi",
-    description: "Azərbaycan Respublikasında hazırda 21 mağaza ilə fəaliyyət göstərən Megastore marketlər şəbəkəsi 2010-cu ildə təsis edilmişdir.",
-    link: "https://www.megastore.market/"
-  },
-  {
-    id: 2,
-    logo: "/Bolmart.svg",
-    title: "Bolmart supermarketlər şəbəkəsi",
-    description: "Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən Bolmart supermarketlər şəbəkəsi hazırda 50-yə yaxın filialla müştərilərin ixtiyarındadır.",
-    link: "https://www.bolmart.az/",
-  },
-  {
-    id: 3,
-    logo: "/Grandmart.svg",
-    title: "Grandmart supermarketlər şəbəkəsi",
-    description: "Azərbaycan pərakəndə bazarında 20 ilə yaxındır fəaliyyət göstərən Grandmart supermarketlər şəbəkəsi hazırda 30-dan çox filialla müştərilərin ixtiyarındadır.",
-    link: "https://www.grandmartsupermarket.com/"
-  },
-  {
-    id: 4,
-    logo: "/Novashome.svg",
-    title: "Novas Home",
-    description: "Novas Home 2019-cu il tarixindən fəaliyyətə başlamışdır. Brendin filialları bizim market mağazalarında yerləşir. Qısa zaman ərzində Novas Home konsepsiyası yeni filiallarda genişlənmişdir.",
-    link: "https://www.novas-home.com/"
-  }
-];
+
 
 export default function Features() {
+  const t = useTranslations("network");
+  const supermarkets = [
+    {
+      id: 1,
+      logo: "/Megastore.svg",
+      title: t("megastore"),
+      description: t("megadescription"),
+      link: "https://www.megastore.market/"
+    },
+    {
+      id: 2,
+      logo: "/Bolmart.svg",
+      title: t("bolmart"),
+      description: t("bolmartdescription"),
+      link: "https://www.bolmart.az/",
+    },
+    {
+      id: 3,
+      logo: "/Grandmart.svg",
+      title: t("grandmart"),
+      description: t("grandmartdescription"),
+      link: "https://www.grandmartsupermarket.com/"
+    },
+    {
+      id: 4,
+      logo: "/Novashome.svg",
+      title: t("novashome"),
+      description: t("novashomedescription"),
+      link: "https://www.novas-home.com/"
+    }
+  ];
   return (
     <section className="py-10 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <span className="inline-block text-teal-600 bg-teal-50 px-4 py-1.5 rounded-full text-2xl font-medium mb-4">
-            Şəbəkəmiz
+            {t("subtitle")}
           </span>
           <h2 className="text-2xl md:text-4xl font-bold text-zinc-900">
-            Supermarketlər şəbəkəmiz
+            {t("title")}
           </h2>
         </div>
 
@@ -76,7 +79,7 @@ export default function Features() {
                   target="_blank"
                   className="inline-flex items-center text-zinc-900 font-medium hover:text-teal-600 transition-colors"
                 >
-                  Sayta keç
+                  {t("link")}
                   <svg
                     className="ml-2 w-5 h-5"
                     fill="none"
