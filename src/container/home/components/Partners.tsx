@@ -10,6 +10,7 @@ import {
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
 import { useTranslations } from "next-intl"
+import { usePartners } from "@/lib/hooks/usePartners"
 
 
 export function Partners() {
@@ -17,19 +18,29 @@ export function Partners() {
     Autoplay({ delay: 1000, stopOnInteraction: false })
   )
   const t = useTranslations("partners");
-  const partners = [
-    { name: "Novas Home", logo: "/Novashome.svg" },
-    { name: "Veysəloğlu", logo: "/veyseloglu.svg" },
-    { name: "Azcake", logo: "/azcake.svg" },
-    { name: "Ozio", logo: "/ozio.svg" },
-    { name: "Pasha Bank", logo: "/pashabank.svg" },
-    { name: "Azersun", logo: "/azersun.svg" },
-    { name: "Ozio", logo: "/ozio.svg" },
-    { name: "Pasha Bank", logo: "/pashabank.svg" },
-    { name: "Novas Home", logo: "/Novashome.svg" },
-    { name: "Veysəloğlu", logo: "/veyseloglu.svg" },
-  ]
   
+  const { data: partners, isLoading, error } = usePartners();
+  
+  if (isLoading) {
+    return (
+      <section className="py-10 md:py-20 bg-white max-w-[880px] w-full mx-auto">
+        <div className="container mx-auto px-4">
+          <div className="text-center">Loading...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-10 md:py-20 bg-white max-w-[880px] w-full mx-auto">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-red-500">Error loading Partners</div>
+        </div>
+      </section>
+    );
+  }
+  console.log(partners, "partners")
   return (
     <section className="py-10 md:py-20 bg-[#FAFBFF] w-full">
       <div className="container relative">
@@ -52,18 +63,18 @@ export function Partners() {
           <Carousel
             opts={{
               align: "start",
-              loop: true,
+              // loop: true,
             }}
-            plugins={[plugin.current]}
+            // plugins={[plugin.current]}
             className="w-full"
           >
             <CarouselContent className="-ml-4">
-              {[...partners, ...partners].map((partner, index) => (
+              {partners && [...partners, ...partners].map((partner, index) => (
                 <CarouselItem key={index} className="pl-4 basis-1/3 md:basis-1/4 lg:basis-1/6">
-                  <div className="rounded-lg bg-white p-4">
+                  <div className="rounded-lg bg-white p-4 w-[160px] h-[100px]" >
                     <Image
-                      src={partner.logo}
-                      alt={partner.name}
+                      src={partner?.img}
+                      alt={"partner"}
                       width={160}
                       height={80}
                       className="w-full h-auto object-contain"
