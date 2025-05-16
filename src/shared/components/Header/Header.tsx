@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useFont } from "@/context/FontContext";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +25,7 @@ export default function Header() {
 
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale()
 
   const isOnTenderPage = pathname.startsWith("/tender");
 
@@ -35,29 +36,29 @@ const t = useTranslations("header");
       <div className="container px-4 mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="text-xl font-bold text-zinc-900">
+          <Link href={`/${locale}`} className="text-xl font-bold text-zinc-900">
             Tender
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md_lg:flex items-center space-x-8">
-          <Link href="/#about" className="text-zinc-700 hover:text-zinc-900">
+          <Link href={`/${locale}/#about`} className="text-zinc-700 hover:text-zinc-900">
             {t("about")}
           </Link>
-          <Link href="/#contact" className="text-zinc-700 hover:text-zinc-900">
+          <Link href={`/${locale}/#contact`} className="text-zinc-700 hover:text-zinc-900">
             {t("contact")}
           </Link>
-          <Link href="/#faq" className="text-zinc-700 hover:text-zinc-900">
+          <Link href={`/${locale}/#faq`} className="text-zinc-700 hover:text-zinc-900">
             {t("faq")}
           </Link>
           <Link
-            href="/#testimonials"
+            href={`/${locale}/#testimonials`}
             className="text-zinc-700 hover:text-zinc-900"
           >
             {t("testimonials")}
           </Link>
-          <Link href="/news" className="text-zinc-700 hover:text-zinc-900">
+          <Link href={`/${locale}/news`} className="text-zinc-700 hover:text-zinc-900">
             {t("news")}
           </Link>
         </nav>
@@ -126,7 +127,7 @@ const t = useTranslations("header");
           ) : (
             <Button
               className="bg-zinc-900 hover:bg-zinc-800 text-white"
-              onClick={() => router.push("/login")}
+              onClick={() => router.push(`/${locale}/login`)}
             >
               {t("login")}
             </Button>
@@ -148,35 +149,35 @@ const t = useTranslations("header");
         <div className="md_lg:hidden h-screen p-4 pt-2 bg-white border-t border-zinc-100">
           <nav className="flex flex-col space-y-4">
             <Link
-              href="/#about"
+              href={`/${locale}/#about`}
               onClick={() => setIsMenuOpen(false)}
               className="text-zinc-700 hover:text-zinc-900 py-2"
             >
               {t("about")}
             </Link>
             <Link
-              href="/#contact"
+              href={`/${locale}/#contact`}
               onClick={() => setIsMenuOpen(false)}
               className="text-zinc-700 hover:text-zinc-900 py-2"
             >
               {t("contact")}
             </Link>
             <Link
-              href="/#faq"
+              href={`/${locale}/#faq`}
               onClick={() => setIsMenuOpen(false)}
               className="text-zinc-700 hover:text-zinc-900 py-2"
             >
               {t("faq")}
             </Link>
             <Link
-              href="/#testimonials"
+              href={`/${locale}/#testimonials`}
               onClick={() => setIsMenuOpen(false)}
               className="text-zinc-700 hover:text-zinc-900 py-2"
             >
               {t("testimonials")}
             </Link>
             <Link
-              href="/news"
+              href={`/${locale}/news`}
               onClick={() => setIsMenuOpen(false)}
               className="text-zinc-700 hover:text-zinc-900"
             >
@@ -217,7 +218,7 @@ const t = useTranslations("header");
               ) : (
                 <Button
                   className="w-full justify-center bg-zinc-900 hover:bg-zinc-800 text-white"
-                  onClick={() => router.push("/login")}
+                  onClick={() => router.push(`/${locale}/login`)}
                 >
                   {t("login")}
                 </Button>

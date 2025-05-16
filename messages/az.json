@@ -65,5 +65,11 @@
       "title":"Aktiv Tenderlər",
       "subtitle":"Tenderlər",
       "button":"Daha çox"
+    },
+    "news":{
+      "title":"Xəbərlər",
+      "other":"Digər xəbərlər",
+      "platform":"Göstərilən platformalarda paylaş",
+      "more":"Ətraflı"
     }
   } 

@@ -4,10 +4,12 @@ import { Button } from "@/shared/components/ui/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 
 export default function Hero() {
   const router=useRouter()
   const t = useTranslations("home");
+  const locale = useLocale()
   return (
     <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden" id="about" >
       {/* Desktop background */}
@@ -66,7 +68,7 @@ export default function Hero() {
           </p>
           
           <div className="mt-10">
-            <Button className="bg-white hover:bg-zinc-50 text-zinc-900 px-8 py-6 text-lg rounded-full shadow-sm hover:shadow-md transition-all duration-200" onClick={()=>{router.push("/login")}}>
+            <Button className="bg-white hover:bg-zinc-50 text-zinc-900 px-8 py-6 text-lg rounded-full shadow-sm hover:shadow-md transition-all duration-200" onClick={()=>{router.push(`/${locale}/login`)}}>
               {t("button")}
             </Button>
           </div>

@@ -237,7 +237,7 @@ import type { TenderData } from "@/shared/models/TenderModels"
 import type { ProductData } from "@/shared/models/ProductModels"
 import { useRouter } from "next/navigation"
 import { getAllMockProducts } from "@/data/product"
-
+import { useLocale } from 'next-intl';
 // Create a simple Badge component since we can't import it
 const Badge = ({
   children,
@@ -269,11 +269,12 @@ const getProductsForSlug = (id: number): ProductData[] => {
 // --- Product Card Component ---
 function ProductCard({ product, tender }: { product: ProductData; tender: TenderData }) {
   const router = useRouter()
+  const locale = useLocale()
   return (
     <div
       className="bg-[#FAFBFF] cursor-pointer hover:bg-[#F1F2F5] border border-gray-100 rounded-lg p-4 flex flex-col relative group shadow-sm hover:shadow-md transition-shadow duration-200"
       onClick={() => {
-        router.push(`/tender/${tender.slug}/${product.slug}`)
+        router.push(`/${locale}/tender/${tender.slug}/${product.slug}`)
       }}
     >
       <div className="h-[360px] bg-white rounded-md flex justify-center items-center p-6 mb-4 aspect-video relative overflow-hidden">
@@ -303,7 +304,7 @@ function ProductCard({ product, tender }: { product: ProductData; tender: Tender
         ))}
       </div>
       <Link
-        href={`/tender/${tender.slug}/${product.slug}`}
+        href={`/${locale}/tender/${tender.slug}/${product.slug}`}
         className="pt-4 text-sm hover:underline flex items-center gap-1 mb-4"
       >
         Ətraflı <ChevronRight className="w-4 h-4" />
@@ -315,11 +316,12 @@ function ProductCard({ product, tender }: { product: ProductData; tender: Tender
 // --- Product List Item Component ---
 function ProductListItem({ product, tender }: { product: ProductData; tender: TenderData }) {
   const router = useRouter()
+  const locale = useLocale()
   return (
     <div
       className="bg-[#FAFBFF] cursor-pointer hover:bg-[#F1F2F5] border border-gray-100 rounded-lg p-4 flex flex-col md:flex-row gap-4 relative group shadow-sm hover:shadow-md transition-shadow duration-200"
       onClick={() => {
-        router.push(`/tender/${tender.slug}/${product.slug}`)
+        router.push(`/${locale}/tender/${tender.slug}/${product.slug}`)
       }}
     >
       <div className="h-[120px] w-full md:w-[120px] bg-white rounded-md flex justify-center items-center p-2 aspect-square relative overflow-hidden">
@@ -350,7 +352,7 @@ function ProductListItem({ product, tender }: { product: ProductData; tender: Te
           ))}
         </div>
         <Link
-          href={`/tender/${tender.slug}/${product.slug}`}
+          href={`/${locale}/tender/${tender.slug}/${product.slug}`}
           className="mt-auto text-sm hover:underline flex items-center gap-1"
         >
           Ətraflı <ChevronRight className="w-4 h-4" />
@@ -384,6 +386,7 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
     }
   }
   const router = useRouter()
+  const locale = useLocale()
   return (
     <div className="container mx-auto  px-4">
       <section className="py-16">
@@ -393,7 +396,7 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
       <nav className="flex items-center text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
           <li className="inline-flex items-center">
-            <Link href="/tender" className="inline-flex items-center hover:text-[#009A85]">
+            <Link href={`/${locale}/tender`} className="inline-flex items-center hover:text-[#009A85]">
               Tenderlərin siyahısı
             </Link>
           </li>
@@ -480,7 +483,7 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
       <Button
         className="fixed bottom-60 right-20 bg-teal-600 hover:bg-teal-700 z-10 h-auto px-3 py-1.5 text-sm shadow"
         onClick={() => {
-          router.push("/cart")
+          router.push(`/${locale}/cart`)
         }}
       >
         <ShoppingBag className="w-4 h-4 mr-1.5" /> Səbətim (2)

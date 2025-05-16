@@ -4,10 +4,10 @@ import NewsDetails from './components/NewsDetails'
 interface NewsDetailsProps {
   slug: string
 }
-const NewsDetailsContainer = ({slug}:NewsDetailsProps) => {
+const NewsDetailsContainer = ({ slug }: NewsDetailsProps) => {
   return (
     <section>
-        <NewsDetails slug={slug}/>
+      <NewsDetails slug={slug}/>
     </section>
   )
 }

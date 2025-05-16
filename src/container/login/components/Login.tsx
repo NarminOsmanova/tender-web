@@ -5,6 +5,7 @@ import { Button } from "@/shared/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useLocale } from 'next-intl'
 
 // Timer component
 const CountdownTimer = ({ initialMinutes = 5 }: { initialMinutes?: number }) => {
@@ -32,6 +33,7 @@ const CountdownTimer = ({ initialMinutes = 5 }: { initialMinutes?: number }) => 
 
 export function Login() {
   const router=useRouter()
+  const locale = useLocale()
   return (
     <div className="min-h-screen bg-[#F7F8FC] flex flex-col items-center pt-16 px-4">
       {/* Logo */}
@@ -66,7 +68,7 @@ export function Login() {
         </div>
 
         {/* Login Button */}
-        <Button className="w-full bg-zinc-900 hover:bg-zinc-800" onClick={() => router.push("/tender")}>
+        <Button className="w-full bg-zinc-900 hover:bg-zinc-800" onClick={() => router.push(`/${locale}/tender`)}>
           Daxil ol
         </Button>
       </div>

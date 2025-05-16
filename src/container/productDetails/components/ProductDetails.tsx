@@ -12,10 +12,10 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/shared/components/ui/carousel";
-
+import { useLocale } from 'next-intl';
 const ProductDetails: React.FC<{ product: ProductData, tenderSlug: string }> = ({ product, tenderSlug }) => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-
+    const locale = useLocale()
     return (
         <section className="container mx-auto py-10 px-4">
             <nav
@@ -25,7 +25,7 @@ const ProductDetails: React.FC<{ product: ProductData, tenderSlug: string }> = (
                 <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li className="inline-flex items-center">
                         <Link
-                            href="/tender"
+                            href={`/${locale}/tender`}
                             className="inline-flex items-center hover:text-[#009A85]"
                         >
                             Tenderlərin siyahısı
@@ -35,7 +35,7 @@ const ProductDetails: React.FC<{ product: ProductData, tenderSlug: string }> = (
                         <div className="flex items-center">
                             <ChevronRight className="rtl:rotate-180 w-3 h-3 mx-1" />
                             <Link
-                                href={`/tender/${tenderSlug}`}
+                                href={`/${locale}/tender/${tenderSlug}`}
                                 className="inline-flex items-center hover:text-[#009A85]"
                             >
                                 Məhsulların siyahısı

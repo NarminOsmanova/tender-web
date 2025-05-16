@@ -3,17 +3,18 @@
 import Link from "next/link"
 import { Instagram, Facebook, Linkedin, Phone, Mail, MapPin } from "lucide-react"
 import { useTranslations } from "next-intl";
-
+import { useLocale } from 'next-intl';
 
 
 export default function Footer() {
+  const locale = useLocale()
   const t = useTranslations("header");
   const navigation = [
-    { name: t("about"), href: "/about" },
-    { name: t("contact"), href: "/contact" },
-    { name: t("faq"), href: "/faq" },
-    { name: t("testimonials"), href: "/testimonials" },
-    { name: t("news"), href: "/news" }
+    { name: t("about"), href: `/${locale}/about` },
+    { name: t("contact"), href: `/${locale}/contact` },
+    { name: t("faq"), href: `/${locale}/faq` },
+    { name: t("testimonials"), href: `/${locale}/testimonials` },
+    { name: t("news"), href: `/${locale}/news` }
   ]
   return (
     <footer className="bg-white w-full">
@@ -24,7 +25,7 @@ export default function Footer() {
             <div className="space-y-8">
               {/* Logo and Navigation */}
               <div className="space-y-6 flex flex-col items-start md:items-center ">
-                <Link href="/" className="text-2xl font-semibold">
+                <Link href={`/${locale}`} className="text-2xl font-semibold">
                   Tender
                 </Link>
                 <nav className="flex gap-4 flex-col md:flex-row">

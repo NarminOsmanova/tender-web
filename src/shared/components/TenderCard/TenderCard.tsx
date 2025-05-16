@@ -6,7 +6,7 @@ import { ChevronRight, Clock4, Eye, Hourglass, MapPin, MessageCircle } from 'luc
 import { TenderData } from '@/shared/models/TenderModels';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import { useLocale } from 'next-intl';
 
 const TenderCard: React.FC<{ tender: TenderData }> = ({ tender }) => {
     const pathname = usePathname();
@@ -14,6 +14,7 @@ const TenderCard: React.FC<{ tender: TenderData }> = ({ tender }) => {
     const isOnCartPage = pathname.startsWith('/cart');
 
     const router=useRouter()
+    const locale = useLocale()
     return (
         <div
             key={tender.id}
@@ -38,7 +39,7 @@ const TenderCard: React.FC<{ tender: TenderData }> = ({ tender }) => {
                 <div className="flex-1 flex flex-col">
                     {/* Top part: Title and Status Badge */}
                     <div className="flex justify-between items-start mb-4 flex-col-reverse md:flex-row gap-2">
-                        <h3 className="text-[20px] font-semibold text-zinc-900 cursor-pointer" onClick={()=>{router.push(`/tender/${tender?.slug}`)}}>{tender.title}</h3>
+                        <h3 className="text-[20px] font-semibold text-zinc-900 cursor-pointer" onClick={()=>{router.push(`/${locale}/tender/${tender?.slug}`)}}>{tender.title}</h3>
                         <Badge
                             variant={tender.status === "Tamamlanmış" ? "default" : "secondary"}
                             className={`${tender.status === "Tamamlanmış" ? 'bg-teal-100 text-teal-700' : 'bg-orange-100 text-orange-700'} whitespace-nowrap flex-shrink-0`}
@@ -50,7 +51,7 @@ const TenderCard: React.FC<{ tender: TenderData }> = ({ tender }) => {
                     {/* Description and Link */}
                     <p className="text-sm text-zinc-600 mb-10 line-clamp-2">{tender.description}</p>
                     {(!isOnTenderPage && !isOnCartPage) && (
-                        <Link href={`/tender/${tender?.slug}`} className="text-sm hover:underline flex items-center gap-1 mb-4">
+                        <Link href={`/${locale}/tender/${tender?.slug}`} className="text-sm hover:underline flex items-center gap-1 mb-4">
                             Ətraflı <ChevronRight className="w-4 h-4" />
                         </Link>
                     )}

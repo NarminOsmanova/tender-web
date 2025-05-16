@@ -63,9 +63,9 @@ export function Partners() {
           <Carousel
             opts={{
               align: "start",
-              // loop: true,
+              loop: true,
             }}
-            // plugins={[plugin.current]}
+            plugins={[plugin.current]}
             className="w-full"
           >
             <CarouselContent className="-ml-4">

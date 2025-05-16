@@ -65,5 +65,11 @@
     "title": "Active Tenders",
     "subtitle": "Tenders",
     "button": "More"
+  },
+  "news":{
+    "title":"News",
+    "other":"Other news",
+    "platform":"Share on platforms",
+    "more":"More"
   }
 }

@@ -7,9 +7,9 @@ import { getMessages } from "next-intl/server";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hackhub.io - Inspiration for Geeks",
+  title: "Tender.az",
   description:
-    "A platform for developers to connect, collaborate, and create amazing projects together.",
+    "Tender.az is a platform for developers to connect, collaborate, and create amazing projects together.",
   icons: {
     icon: "/favicon.ico",
   },
