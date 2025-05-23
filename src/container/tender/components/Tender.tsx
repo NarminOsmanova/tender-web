@@ -136,7 +136,7 @@ export function Tender() {
               <SelectContent>
                 <SelectItem value="all">Hamısı</SelectItem>
                 <SelectItem value="Davam edir">Davam edir</SelectItem>
-                <SelectItem value="Tamamlanmış">Tamamlanmış</SelectItem>
+                <SelectItem value="Müddəti bitmiş">Müddəti bitmiş</SelectItem>
               </SelectContent>
             </Select>
             {/* City Select */}
@@ -182,7 +182,7 @@ export function Tender() {
               <SelectContent>
                 <SelectItem value="all">Hamısı</SelectItem>
                 <SelectItem value="Davam edir">Davam edir</SelectItem>
-                <SelectItem value="Tamamlanmış">Tamamlanmış</SelectItem>
+                <SelectItem value="Müddəti bitmiş">Müddəti bitmiş</SelectItem>
               </SelectContent>
             </Select>
             {/* City Select (Mobile) */}

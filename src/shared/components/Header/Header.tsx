@@ -27,7 +27,7 @@ export default function Header() {
   const pathname = usePathname();
   const locale = useLocale()
 
-  const isOnTenderPage = pathname.startsWith("/tender");
+  const isOnTenderPage = pathname.startsWith("/en/tender");
 
   const userName = "Narmin Osmanova";
 const t = useTranslations("header");
@@ -109,7 +109,7 @@ const t = useTranslations("header");
           <LanguageSwitcher />
           {isOnTenderPage ? (
             <div className="flex items-center space-x-4">
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => {
@@ -118,7 +118,7 @@ const t = useTranslations("header");
               >
                 <ShoppingBag className="h-5 w-5 text-zinc-700" />
                 <span className="sr-only">Cart</span>
-              </Button>
+              </Button> */}
               <div className="flex items-center space-x-2">
                 <User className="h-5 w-5 text-zinc-700" />
                 <span className="text-zinc-700">{userName}</span>

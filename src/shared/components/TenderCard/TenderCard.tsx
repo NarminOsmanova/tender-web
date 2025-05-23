@@ -41,8 +41,8 @@ const TenderCard: React.FC<{ tender: TenderData }> = ({ tender }) => {
                     <div className="flex justify-between items-start mb-4 flex-col-reverse md:flex-row gap-2">
                         <h3 className="text-[20px] font-semibold text-zinc-900 cursor-pointer" onClick={()=>{router.push(`/${locale}/tender/${tender?.slug}`)}}>{tender.title}</h3>
                         <Badge
-                            variant={tender.status === "Tamamlanmış" ? "default" : "secondary"}
-                            className={`${tender.status === "Tamamlanmış" ? 'bg-teal-100 text-teal-700' : 'bg-orange-100 text-orange-700'} whitespace-nowrap flex-shrink-0`}
+                            variant={tender.status === "Müddəti bitmiş" ? "secondary" : "default"}
+                            className={`${tender.status === "Müddəti bitmiş" ? 'bg-teal-100 text-teal-700' : 'bg-orange-100 text-orange-700'} whitespace-nowrap flex-shrink-0`}
                         >
                             {tender.status}
                         </Badge>

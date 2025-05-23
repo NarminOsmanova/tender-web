@@ -480,14 +480,14 @@ const TenderDetails: React.FC<TenderDetailsProps> = ({ slug, tender }) => {
         </section>
       )}
 
-      <Button
+      {/* <Button
         className="fixed bottom-60 right-20 bg-teal-600 hover:bg-teal-700 z-10 h-auto px-3 py-1.5 text-sm shadow"
         onClick={() => {
           router.push(`/${locale}/cart`)
         }}
       >
         <ShoppingBag className="w-4 h-4 mr-1.5" /> Səbətim (2)
-      </Button>
+      </Button> */}
 
       {/* --- Pagination (Conditional & Styled) --- */}
       {totalPages > 1 && (
