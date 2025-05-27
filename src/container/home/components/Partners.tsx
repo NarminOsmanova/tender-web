@@ -40,7 +40,6 @@ export function Partners() {
       </section>
     );
   }
-  console.log(partners, "partners")
   return (
     <section className="py-10 md:py-20 bg-[#FAFBFF] w-full">
       <div className="container relative">

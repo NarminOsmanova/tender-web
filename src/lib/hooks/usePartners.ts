@@ -6,7 +6,6 @@ export const usePartners = () => {
     queryKey: ['partners'],
     queryFn: async () => {
       const response = await partnerService.getPartners();
-      console.log(response, "response")
       return response.responseValue;
     },
   });

@@ -9,6 +9,6 @@ export interface ContactFormData {
 }
 
 export const createContact = async (data: ContactFormData) => {
-  const response = await apiClient.post("/Contancts/web/create", data);
+  const response = await apiClient.post("/Contacts/web/create", data);
   return response.data;
 }; 

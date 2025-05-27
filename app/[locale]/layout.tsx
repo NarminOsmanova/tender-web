@@ -29,7 +29,6 @@ export default async function RootLayout({
 }) {
   const { locale } = params;
   const messages = await getMessages();
-  console.log(locale,"locale");
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
     <TanStackQueryProvider>
