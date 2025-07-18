@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
+import { useSimaQr } from '@/lib/hooks/useSimaService'
 
 // Timer component
 const CountdownTimer = ({ initialMinutes = 5 }: { initialMinutes?: number }) => {
@@ -32,13 +33,26 @@ const CountdownTimer = ({ initialMinutes = 5 }: { initialMinutes?: number }) => 
 }
 
 export function Login() {
-  const router=useRouter()
+  const router = useRouter()
   const locale = useLocale()
+  const { loading, error, qrCode, getQrCode } = useSimaQr()
+
+  // Sima üçün nümunə data (bunları real dəyərlərlə əvəz et)
+  const simaRequestData = {
+   
+    redirectUrl: `https://tender-web-eta.vercel.app/${locale}/tender`,
+  }
+
+  // Səhifə açılan kimi QR kodu al
+  useEffect(() => {
+    getQrCode(simaRequestData)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div className="min-h-screen bg-[#F7F8FC] flex flex-col items-center pt-16 px-4">
       {/* Logo */}
       <div className="mb-12">
-        {/* Replace with your actual logo component or image */}
         <span className="text-3xl font-bold">digital<span className="text-blue-600">•</span>login</span>
       </div>
 
@@ -55,22 +69,33 @@ export function Login() {
         </h1>
 
         {/* QR Code Section */}
-        <div className="bg-white p-6 rounded-lg border border-gray-200 flex flex-col items-center mb-8">
-          {/* <QRCodePlaceholder /> */}
-          <Image 
-            src="/QRCode.png" 
-            alt="QR Code" 
-            width={256} // w-64 is 256px
-            height={256} // h-64 is 256px
-            className="border border-gray-300" // Keep border for visual structure
-          />
-          <CountdownTimer initialMinutes={4} />
-        </div>
+        {qrCode ? (
+          <div className="bg-white p-6 rounded-lg border border-gray-200 flex flex-col items-center mb-8">
+            <Image
+              src={qrCode.startsWith('data:image') ? qrCode : `/api/qr-proxy?url=${encodeURIComponent(qrCode)}`}
+              alt="QR Code"
+              width={256}
+              height={256}
+              className="border border-gray-300"
+            />
+            <CountdownTimer initialMinutes={4} />
+          </div>
+        ) : (
+          <div className="bg-white p-6 rounded-lg border border-gray-200 flex flex-col items-center mb-8">
+            <Image
+              src="/QRCode.png"
+              alt="QR Code"
+              width={256}
+              height={256}
+              className="border border-gray-300 opacity-30"
+            />
+          </div>
+        )}
 
-        {/* Login Button */}
-        <Button className="w-full bg-zinc-900 hover:bg-zinc-800" onClick={() => router.push(`/${locale}/tender`)}>
-          Daxil ol
-        </Button>
+        {/* Error */}
+        {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+
+        {/* Login Button artıq yoxdur */}
       </div>
     </div>
   )
